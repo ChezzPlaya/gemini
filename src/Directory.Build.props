@@ -1,4 +1,9 @@
 <Project>
+
+	 <PropertyGroup>
+	   <LangVersion>latest</LangVersion>
+	 </PropertyGroup>
+
     <PropertyGroup>
         <Authors>Tim Jones</Authors>
         <RepositoryUrl>https://github.com/tgjones/gemini</RepositoryUrl>

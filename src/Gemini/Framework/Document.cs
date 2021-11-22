@@ -93,7 +93,7 @@ Before:
 After:
 	        var (!(this as IPersistedDocument;
 */
-            if (this is not IPersistedDocument persistedDocument))
+            if (this is not IPersistedDocument persistedDocument)
                 return;
 
             // If file has never been saved, show Save As dialog.
