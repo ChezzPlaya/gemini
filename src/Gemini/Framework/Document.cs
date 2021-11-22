@@ -24,10 +24,10 @@ namespace Gemini.Framework
         ICommandHandler<SaveFileAsCommandDefinition>
 	{
 	    private IUndoRedoManager _undoRedoManager;
-        public IUndoRedoManager UndoRedoManager => _undoRedoManager ?? (_undoRedoManager = new UndoRedoManager());
+        public IUndoRedoManager UndoRedoManager => _undoRedoManager ??= new UndoRedoManager();
 
         private ICommand _closeCommand;
-        public override ICommand CloseCommand => _closeCommand ?? (_closeCommand = new AsyncCommand(() => TryCloseAsync(null)));
+        public override ICommand CloseCommand => _closeCommand ??= new AsyncCommand(() => TryCloseAsync(null));
 
         private ToolBarDefinition _toolBarDefinition;
         public ToolBarDefinition ToolBarDefinition
@@ -139,8 +139,10 @@ After:
 	    private static async Task DoSaveAs(IPersistedDocument persistedDocument)
 	    {
             // Show user dialog to choose filename.
-            var dialog = new SaveFileDialog();
-            dialog.FileName = persistedDocument.FileName;
+            var dialog = new SaveFileDialog
+            {
+                FileName = persistedDocument.FileName
+            };
             var filter = string.Empty;
 
             var fileExtension = Path.GetExtension(persistedDocument.FileName);

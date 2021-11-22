@@ -11,7 +11,7 @@ namespace Gemini.Framework
     public abstract class Tool : LayoutItemBase, ITool
     {
         private ICommand _closeCommand;
-        public override ICommand CloseCommand => _closeCommand ?? (_closeCommand = new AsyncCommand(() => TryCloseAsync(null)));
+        public override ICommand CloseCommand => _closeCommand ??= new AsyncCommand(() => TryCloseAsync(null));
 
         public abstract PaneLocation PreferredLocation { get; }
 
