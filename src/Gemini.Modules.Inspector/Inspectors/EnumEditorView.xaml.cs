@@ -19,9 +19,6 @@ namespace Gemini.Modules.Inspector.Inspectors
     /// </summary>
     public partial class EnumEditorView : UserControl
     {
-        public EnumEditorView()
-        {
-            InitializeComponent();
-        }
+        public EnumEditorView() => InitializeComponent();
     }
 }

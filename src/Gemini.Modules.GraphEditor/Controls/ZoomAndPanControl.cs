@@ -159,8 +159,8 @@ namespace Gemini.Modules.GraphEditor.Controls
         /// </summary>
         public double ContentOffsetX
         {
-            get { return (double) GetValue(ContentOffsetXProperty); }
-            set { SetValue(ContentOffsetXProperty, value); }
+            get => (double)GetValue(ContentOffsetXProperty);
+            set => SetValue(ContentOffsetXProperty, value);
         }
 
         /// <summary>
@@ -173,8 +173,8 @@ namespace Gemini.Modules.GraphEditor.Controls
         /// </summary>
         public double ContentOffsetY
         {
-            get { return (double) GetValue(ContentOffsetYProperty); }
-            set { SetValue(ContentOffsetYProperty, value); }
+            get => (double)GetValue(ContentOffsetYProperty);
+            set => SetValue(ContentOffsetYProperty, value);
         }
 
         /// <summary>
@@ -187,8 +187,8 @@ namespace Gemini.Modules.GraphEditor.Controls
         /// </summary>
         public double ContentScale
         {
-            get { return (double) GetValue(ContentScaleProperty); }
-            set { SetValue(ContentScaleProperty, value); }
+            get => (double)GetValue(ContentScaleProperty);
+            set => SetValue(ContentScaleProperty, value);
         }
 
         /// <summary>
@@ -201,8 +201,8 @@ namespace Gemini.Modules.GraphEditor.Controls
         /// </summary>
         public double MinContentScale
         {
-            get { return (double) GetValue(MinContentScaleProperty); }
-            set { SetValue(MinContentScaleProperty, value); }
+            get => (double)GetValue(MinContentScaleProperty);
+            set => SetValue(MinContentScaleProperty, value);
         }
 
         /// <summary>
@@ -210,8 +210,8 @@ namespace Gemini.Modules.GraphEditor.Controls
         /// </summary>
         public double MaxContentScale
         {
-            get { return (double) GetValue(MaxContentScaleProperty); }
-            set { SetValue(MaxContentScaleProperty, value); }
+            get => (double)GetValue(MaxContentScaleProperty);
+            set => SetValue(MaxContentScaleProperty, value);
         }
 
         /// <summary>
@@ -219,8 +219,8 @@ namespace Gemini.Modules.GraphEditor.Controls
         /// </summary>
         public double ContentZoomFocusX
         {
-            get { return (double) GetValue(ContentZoomFocusXProperty); }
-            set { SetValue(ContentZoomFocusXProperty, value); }
+            get => (double)GetValue(ContentZoomFocusXProperty);
+            set => SetValue(ContentZoomFocusXProperty, value);
         }
 
         /// <summary>
@@ -228,8 +228,8 @@ namespace Gemini.Modules.GraphEditor.Controls
         /// </summary>
         public double ContentZoomFocusY
         {
-            get { return (double) GetValue(ContentZoomFocusYProperty); }
-            set { SetValue(ContentZoomFocusYProperty, value); }
+            get => (double)GetValue(ContentZoomFocusYProperty);
+            set => SetValue(ContentZoomFocusYProperty, value);
         }
 
         /// <summary>
@@ -238,8 +238,8 @@ namespace Gemini.Modules.GraphEditor.Controls
         /// </summary>
         public double ViewportZoomFocusX
         {
-            get { return (double) GetValue(ViewportZoomFocusXProperty); }
-            set { SetValue(ViewportZoomFocusXProperty, value); }
+            get => (double)GetValue(ViewportZoomFocusXProperty);
+            set => SetValue(ViewportZoomFocusXProperty, value);
         }
 
         /// <summary>
@@ -248,8 +248,8 @@ namespace Gemini.Modules.GraphEditor.Controls
         /// </summary>
         public double ViewportZoomFocusY
         {
-            get { return (double) GetValue(ViewportZoomFocusYProperty); }
-            set { SetValue(ViewportZoomFocusYProperty, value); }
+            get => (double)GetValue(ViewportZoomFocusYProperty);
+            set => SetValue(ViewportZoomFocusYProperty, value);
         }
 
         /// <summary>
@@ -257,8 +257,8 @@ namespace Gemini.Modules.GraphEditor.Controls
         /// </summary>
         public double AnimationDuration
         {
-            get { return (double) GetValue(AnimationDurationProperty); }
-            set { SetValue(AnimationDurationProperty, value); }
+            get => (double)GetValue(AnimationDurationProperty);
+            set => SetValue(AnimationDurationProperty, value);
         }
 
         /// <summary>
@@ -266,8 +266,8 @@ namespace Gemini.Modules.GraphEditor.Controls
         /// </summary>
         public double ContentViewportWidth
         {
-            get { return (double) GetValue(ContentViewportWidthProperty); }
-            set { SetValue(ContentViewportWidthProperty, value); }
+            get => (double)GetValue(ContentViewportWidthProperty);
+            set => SetValue(ContentViewportWidthProperty, value);
         }
 
         /// <summary>
@@ -275,8 +275,8 @@ namespace Gemini.Modules.GraphEditor.Controls
         /// </summary>
         public double ContentViewportHeight
         {
-            get { return (double) GetValue(ContentViewportHeightProperty); }
-            set { SetValue(ContentViewportHeightProperty, value); }
+            get => (double)GetValue(ContentViewportHeightProperty);
+            set => SetValue(ContentViewportHeightProperty, value);
         }
 
         /// <summary>
@@ -285,16 +285,14 @@ namespace Gemini.Modules.GraphEditor.Controls
         /// </summary>
         public bool IsMouseWheelScrollingEnabled
         {
-            get { return (bool) GetValue(IsMouseWheelScrollingEnabledProperty); }
-            set { SetValue(IsMouseWheelScrollingEnabledProperty, value); }
+            get => (bool)GetValue(IsMouseWheelScrollingEnabledProperty);
+            set => SetValue(IsMouseWheelScrollingEnabledProperty, value);
         }
 
         /// <summary>
         /// Do an animated zoom to view a specific scale and rectangle (in content coordinates).
         /// </summary>
-        public void AnimatedZoomTo(double newScale, Rect contentRect)
-        {
-            AnimatedZoomPointToViewportCenter(newScale, new Point(contentRect.X + (contentRect.Width / 2), contentRect.Y + (contentRect.Height / 2)),
+        public void AnimatedZoomTo(double newScale, Rect contentRect) => AnimatedZoomPointToViewportCenter(newScale, new Point(contentRect.X + (contentRect.Width / 2), contentRect.Y + (contentRect.Height / 2)),
                 delegate
                 {
                     //
@@ -305,7 +303,6 @@ namespace Gemini.Modules.GraphEditor.Controls
                     ContentOffsetX = contentRect.X;
                     ContentOffsetY = contentRect.Y;
                 });
-        }
 
         /// <summary>
         /// Do an animated zoom to the specified rectangle (in content coordinates).
@@ -468,10 +465,7 @@ namespace Gemini.Modules.GraphEditor.Controls
         /// <summary>
         /// Static constructor to define metadata for the control (and link it to the style in Generic.xaml).
         /// </summary>
-        static ZoomAndPanControl()
-        {
-            DefaultStyleKeyProperty.OverrideMetadata(typeof(ZoomAndPanControl), new FrameworkPropertyMetadata(typeof(ZoomAndPanControl)));
-        }
+        static ZoomAndPanControl() => DefaultStyleKeyProperty.OverrideMetadata(typeof(ZoomAndPanControl), new FrameworkPropertyMetadata(typeof(ZoomAndPanControl)));
 
         public ZoomAndPanControl()
         {
@@ -540,10 +534,7 @@ namespace Gemini.Modules.GraphEditor.Controls
                 {
                     _enableContentOffsetUpdateFromScale = false;
 
-                    if (callback != null)
-                    {
-                        callback(this, EventArgs.Empty);
-                    }
+                    callback?.Invoke(this, EventArgs.Empty);
                 });
 
             AnimationHelper.StartAnimation(this, ViewportZoomFocusXProperty, ViewportWidth / 2, AnimationDuration);
@@ -616,10 +607,7 @@ namespace Gemini.Modules.GraphEditor.Controls
                 }
             }
 
-            if (c.ContentScaleChanged != null)
-            {
-                c.ContentScaleChanged(c, EventArgs.Empty);
-            }
+            c.ContentScaleChanged?.Invoke(c, EventArgs.Empty);
 
             if (c.ScrollOwner != null)
             {
@@ -665,13 +653,10 @@ namespace Gemini.Modules.GraphEditor.Controls
                 c.UpdateContentZoomFocusX();
             }
 
-            if (c.ContentOffsetXChanged != null)
-            {
-                //
-                // Raise an event to let users of the control know that the content offset has changed.
-                //
-                c.ContentOffsetXChanged(c, EventArgs.Empty);
-            }
+            //
+            // Raise an event to let users of the control know that the content offset has changed.
+            //
+            c.ContentOffsetXChanged?.Invoke(c, EventArgs.Empty);
 
             if (!c._disableScrollOffsetSync && c.ScrollOwner != null)
             {
@@ -713,13 +698,10 @@ namespace Gemini.Modules.GraphEditor.Controls
                 c.UpdateContentZoomFocusY();
             }
 
-            if (c.ContentOffsetYChanged != null)
-            {
-                //
-                // Raise an event to let users of the control know that the content offset has changed.
-                //
-                c.ContentOffsetYChanged(c, EventArgs.Empty);
-            }
+            //
+            // Raise an event to let users of the control know that the content offset has changed.
+            //
+            c.ContentOffsetYChanged?.Invoke(c, EventArgs.Empty);
 
             if (!c._disableScrollOffsetSync && c.ScrollOwner != null)
             {
@@ -862,18 +844,12 @@ namespace Gemini.Modules.GraphEditor.Controls
         /// <summary>
         /// Update the X coordinate of the zoom focus point in content coordinates.
         /// </summary>
-        private void UpdateContentZoomFocusX()
-        {
-            ContentZoomFocusX = ContentOffsetX + (_constrainedContentViewportWidth / 2);
-        }
+        private void UpdateContentZoomFocusX() => ContentZoomFocusX = ContentOffsetX + (_constrainedContentViewportWidth / 2);
 
         /// <summary>
         /// Update the Y coordinate of the zoom focus point in content coordinates.
         /// </summary>
-        private void UpdateContentZoomFocusY()
-        {
-            ContentZoomFocusY = ContentOffsetY + (_constrainedContentViewportHeight / 2);
-        }
+        private void UpdateContentZoomFocusY() => ContentZoomFocusY = ContentOffsetY + (_constrainedContentViewportHeight / 2);
 
         /// <summary>
         /// Measure the control and it's children.

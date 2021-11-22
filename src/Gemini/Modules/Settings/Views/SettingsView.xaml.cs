@@ -7,9 +7,6 @@ namespace Gemini.Modules.Settings.Views
     /// </summary>
     public partial class SettingsView : Window
     {
-        public SettingsView()
-        {
-            InitializeComponent();
-        }
+        public SettingsView() => InitializeComponent();
     }
 }

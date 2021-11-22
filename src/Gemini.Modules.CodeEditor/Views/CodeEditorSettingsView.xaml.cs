@@ -20,9 +20,6 @@ namespace Gemini.Modules.CodeEditor.Views
     /// </summary>
     public partial class CodeEditorSettingsView : UserControl
     {
-        public CodeEditorSettingsView()
-        {
-            InitializeComponent();
-        }
+        public CodeEditorSettingsView() => InitializeComponent();
     }
 }

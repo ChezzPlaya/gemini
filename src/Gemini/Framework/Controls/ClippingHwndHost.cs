@@ -36,8 +36,8 @@ namespace Gemini.Framework.Controls
 
         public Visual Content
         {
-            get { return (Visual) GetValue(ContentProperty); }
-            set { SetValue(ContentProperty, value); }
+            get => (Visual)GetValue(ContentProperty);
+            set => SetValue(ContentProperty, value);
         }
 
         protected override IEnumerator LogicalChildren

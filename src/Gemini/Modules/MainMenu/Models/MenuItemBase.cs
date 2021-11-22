@@ -6,43 +6,28 @@ namespace Gemini.Modules.MainMenu.Models
 {
 	public class MenuItemBase : PropertyChangedBase, IEnumerable<MenuItemBase>
 	{
-		#region Static stuff
+        #region Static stuff
 
-		public static MenuItemBase Separator
-		{
-			get { return new MenuItemSeparator(); }
-		}
+        public static MenuItemBase Separator => new MenuItemSeparator();
 
-		#endregion
+        #endregion
 
-		#region Properties
+        #region Properties
 
-		public IObservableCollection<MenuItemBase> Children { get; private set; }
+        public IObservableCollection<MenuItemBase> Children { get; private set; }
 
-	    #endregion
+        #endregion
 
-		#region Constructors
+        #region Constructors
 
-		protected MenuItemBase()
-		{
-			Children = new BindableCollection<MenuItemBase>();
-		}
+        protected MenuItemBase() => Children = new BindableCollection<MenuItemBase>();
 
-		#endregion
+        #endregion
 
-		public void Add(params MenuItemBase[] menuItems)
-		{
-			menuItems.Apply(Children.Add);
-		}
+        public void Add(params MenuItemBase[] menuItems) => menuItems.Apply(Children.Add);
 
-		public IEnumerator<MenuItemBase> GetEnumerator()
-		{
-			return Children.GetEnumerator();
-		}
+        public IEnumerator<MenuItemBase> GetEnumerator() => Children.GetEnumerator();
 
-		IEnumerator IEnumerable.GetEnumerator()
-		{
-			return GetEnumerator();
-		}
-	}
+        IEnumerator IEnumerable.GetEnumerator() => GetEnumerator();
+    }
 }

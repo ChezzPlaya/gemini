@@ -18,12 +18,9 @@ namespace Gemini.Modules.MainMenu.Controls
 			return base.IsItemItsOwnContainerOverride(item);
 		}
 
-		protected override DependencyObject GetContainerForItemOverride()
-		{
-			return GetContainer(this, _currentItem);
-		}
+        protected override DependencyObject GetContainerForItemOverride() => GetContainer(this, _currentItem);
 
-		internal static DependencyObject GetContainer(FrameworkElement frameworkElement, object item)
+        internal static DependencyObject GetContainer(FrameworkElement frameworkElement, object item)
 		{
 		    if (item is MenuItemSeparator)
 		        return new Separator();
@@ -58,9 +55,6 @@ namespace Gemini.Modules.MainMenu.Controls
             base.ClearContainerForItemOverride(element, item);
         }
 
-        private void UpdateSeparatorsVisibility(object sender, EventArgs e)
-        {
-            ItemsControlUtility.UpdateSeparatorsVisibility(this);
-        }
+        private void UpdateSeparatorsVisibility(object sender, EventArgs e) => ItemsControlUtility.UpdateSeparatorsVisibility(this);
     }
 }

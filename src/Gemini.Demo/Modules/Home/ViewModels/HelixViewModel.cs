@@ -31,7 +31,7 @@ namespace Gemini.Demo.Modules.Home.ViewModels
         [DisplayName("Camera Position"), Description("Position of the camera in 3D space"), Category("Camera")]
         public Point3D CameraPosition
         {
-            get { return _cameraPosition; }
+            get => _cameraPosition;
             set
             {
                 _cameraPosition = value;
@@ -43,7 +43,7 @@ namespace Gemini.Demo.Modules.Home.ViewModels
         [DisplayName("Field of View"), Range(1.0, 180.0), Category("Camera")]
         public double CameraFieldOfView
         {
-            get { return _cameraFieldOfView; }
+            get => _cameraFieldOfView;
             set
             {
                 _cameraFieldOfView = value;
@@ -55,7 +55,7 @@ namespace Gemini.Demo.Modules.Home.ViewModels
         [DisplayName("Light Position")]
         public Point3D LightPosition
         {
-            get { return _lightPosition; }
+            get => _lightPosition;
             set
             {
                 _lightPosition = value;
@@ -67,7 +67,7 @@ namespace Gemini.Demo.Modules.Home.ViewModels
         [DisplayName("Rotation Angle"), ReadOnly(true)]
         public double RotationAngle
         {
-            get { return _rotationAngle; }
+            get => _rotationAngle;
             set
             {
                 _rotationAngle = value;

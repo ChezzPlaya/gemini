@@ -23,8 +23,8 @@ namespace Gemini.Modules.Inspector
 
         public object Value
         {
-            get { return PropertyDescriptor.GetValue(PropertyOwner); }
-            set { PropertyDescriptor.SetValue(PropertyOwner, value); }
+            get => PropertyDescriptor.GetValue(PropertyOwner);
+            set => PropertyDescriptor.SetValue(PropertyOwner, value);
         }
 
         public BoundPropertyDescriptor(object propertyOwner, PropertyDescriptor propertyDescriptor)

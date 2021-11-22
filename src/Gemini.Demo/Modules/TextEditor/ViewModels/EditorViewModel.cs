@@ -46,17 +46,10 @@ namespace Gemini.Demo.Modules.TextEditor.ViewModels
             };
         }
 
-		protected override void OnViewLoaded(object view)
-		{
-            _view = (EditorView) view;
-		}
+        protected override void OnViewLoaded(object view) => _view = (EditorView)view;
 
-        public override bool Equals(object obj)
-		{
-			var other = obj as EditorViewModel;
-            return other != null
+        public override bool Equals(object obj) => obj is EditorViewModel other
                 && string.Equals(FilePath, other.FilePath, StringComparison.InvariantCultureIgnoreCase)
                 && string.Equals(FileName, other.FileName, StringComparison.InvariantCultureIgnoreCase);
-        }
     }
 }

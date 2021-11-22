@@ -14,9 +14,6 @@ namespace Gemini.Framework.Services
         /// <summary>
         /// Looks up the specified service.
         /// </summary>
-        public object GetService(Type serviceType)
-        {
-            return IoC.GetInstance(serviceType, null);
-        }
+        public object GetService(Type serviceType) => IoC.GetInstance(serviceType, null);
     }
 }

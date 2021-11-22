@@ -15,14 +15,8 @@ namespace Gemini.Demo.Modules.Home.Commands
         private readonly IShell _shell;
 
         [ImportingConstructor]
-        public ViewHelixCommandHandler(IShell shell)
-        {
-            _shell = shell;
-        }
+        public ViewHelixCommandHandler(IShell shell) => _shell = shell;
 
-        public override Task Run(Command command)
-        {
-            return _shell.OpenDocumentAsync((IDocument) IoC.GetInstance(typeof(HelixViewModel), null));
-        }
+        public override Task Run(Command command) => _shell.OpenDocumentAsync((IDocument)IoC.GetInstance(typeof(HelixViewModel), null));
     }
 }

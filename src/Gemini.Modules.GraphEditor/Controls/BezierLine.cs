@@ -18,8 +18,8 @@ namespace Gemini.Modules.GraphEditor.Controls
 
         public double X1
         {
-            get { return (double) GetValue(X1Property); }
-            set { SetValue(X1Property, value); }
+            get => (double)GetValue(X1Property);
+            set => SetValue(X1Property, value);
         }
 
         public static readonly DependencyProperty X2Property = DependencyProperty.Register(
@@ -28,8 +28,8 @@ namespace Gemini.Modules.GraphEditor.Controls
 
         public double X2
         {
-            get { return (double) GetValue(X2Property); }
-            set { SetValue(X2Property, value); }
+            get => (double)GetValue(X2Property);
+            set => SetValue(X2Property, value);
         }
 
         public static readonly DependencyProperty Y1Property = DependencyProperty.Register(
@@ -38,8 +38,8 @@ namespace Gemini.Modules.GraphEditor.Controls
 
         public double Y1
         {
-            get { return (double) GetValue(Y1Property); }
-            set { SetValue(Y1Property, value); }
+            get => (double)GetValue(Y1Property);
+            set => SetValue(Y1Property, value);
         }
 
         public static readonly DependencyProperty Y2Property = DependencyProperty.Register(
@@ -48,14 +48,11 @@ namespace Gemini.Modules.GraphEditor.Controls
 
         public double Y2
         {
-            get { return (double) GetValue(Y2Property); }
-            set { SetValue(Y2Property, value); }
+            get => (double)GetValue(Y2Property);
+            set => SetValue(Y2Property, value);
         }
 
-        protected override Geometry DefiningGeometry
-        {
-            get { return _geometry; }
-        }
+        protected override Geometry DefiningGeometry => _geometry;
 
         protected override Size MeasureOverride(Size constraint)
         {

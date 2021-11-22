@@ -9,9 +9,6 @@ namespace Gemini.Demo.Modules.SampleBrowser
     [Export(typeof(IModule))]
     public class Module : ModuleBase
     {
-        public override Task PostInitializeAsync()
-        {
-            return Shell.OpenDocumentAsync(IoC.Get<SampleBrowserViewModel>());
-        }
+        public override Task PostInitializeAsync() => Shell.OpenDocumentAsync(IoC.Get<SampleBrowserViewModel>());
     }
 }

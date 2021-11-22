@@ -9,13 +9,10 @@ namespace Gemini.Framework.ShaderEffects
 
         public Brush Input
         {
-            get { return (Brush) GetValue(InputProperty); }
-            set { SetValue(InputProperty, value); }
+            get => (Brush)GetValue(InputProperty);
+            set => SetValue(InputProperty, value);
         }
 
-        public GrayscaleEffect()
-        {
-            UpdateShaderValue(InputProperty);
-        }
+        public GrayscaleEffect() => UpdateShaderValue(InputProperty);
     }
 }

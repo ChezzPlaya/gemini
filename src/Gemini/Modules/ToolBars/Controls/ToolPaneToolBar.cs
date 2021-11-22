@@ -5,11 +5,8 @@ namespace Gemini.Modules.ToolBars.Controls
 {
     public class ToolPaneToolBar : ToolBarBase
     {
-        static ToolPaneToolBar()
-        {
-            DefaultStyleKeyProperty.OverrideMetadata(typeof(ToolPaneToolBar),
+        static ToolPaneToolBar() => DefaultStyleKeyProperty.OverrideMetadata(typeof(ToolPaneToolBar),
                 new FrameworkPropertyMetadata(typeof(ToolPaneToolBar)));
-        }
 
         public ToolPaneToolBar()
         {

@@ -23,7 +23,7 @@ namespace Gemini.Demo.Modules.FilterDesigner.Util
 
         public WriteableBitmap InnerBitmap
         {
-            get { return _bitmap; }
+            get => _bitmap;
             set
             {
                 _bitmap = value;
@@ -33,15 +33,9 @@ namespace Gemini.Demo.Modules.FilterDesigner.Util
             }
         }
 
-        public int Width
-        {
-            get { return _width; }
-        }
+        public int Width => _width;
 
-        public int Height
-        {
-            get { return _height; }
-        }
+        public int Height => _height;
 
         unsafe public Color this[int x, int y]
         {
@@ -81,15 +75,9 @@ namespace Gemini.Demo.Modules.FilterDesigner.Util
 
         #region Constructors / Destructor
 
-        public FastBitmap(int width, int height)
-        {
-            InnerBitmap = new WriteableBitmap(width, height, 96, 96, PixelFormats.Pbgra32, null);
-        }
+        public FastBitmap(int width, int height) => InnerBitmap = new WriteableBitmap(width, height, 96, 96, PixelFormats.Pbgra32, null);
 
-        public FastBitmap(string filename, UriKind uriKind = UriKind.Absolute)
-        {
-            InnerBitmap = new WriteableBitmap(ConvertFormat(new BitmapImage(new Uri(filename, uriKind))));
-        }
+        public FastBitmap(string filename, UriKind uriKind = UriKind.Absolute) => InnerBitmap = new WriteableBitmap(ConvertFormat(new BitmapImage(new Uri(filename, uriKind))));
 
         public FastBitmap(byte[] bytes)
         {
@@ -110,10 +98,7 @@ namespace Gemini.Demo.Modules.FilterDesigner.Util
             }
         }
 
-        public FastBitmap(BitmapSource bitmap)
-        {
-            InnerBitmap = new WriteableBitmap(ConvertFormat(bitmap));
-        }
+        public FastBitmap(BitmapSource bitmap) => InnerBitmap = new WriteableBitmap(ConvertFormat(bitmap));
 
         ~FastBitmap()
         {
@@ -141,10 +126,7 @@ namespace Gemini.Demo.Modules.FilterDesigner.Util
             GC.SuppressFinalize(this);
         }
 
-        protected virtual void Dispose(bool disposing)
-        {
-            Unlock();
-        }
+        protected virtual void Dispose(bool disposing) => Unlock();
 
         #region Methods
 

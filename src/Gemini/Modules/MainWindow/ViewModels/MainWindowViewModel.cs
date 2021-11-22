@@ -26,7 +26,7 @@ namespace Gemini.Modules.MainWindow.ViewModels
         private WindowState _windowState = WindowState.Normal;
         public WindowState WindowState
         {
-            get { return _windowState; }
+            get => _windowState;
             set
             {
                 _windowState = value;
@@ -37,7 +37,7 @@ namespace Gemini.Modules.MainWindow.ViewModels
         private double _width = 1000.0;
         public double Width
         {
-            get { return _width; }
+            get => _width;
             set
             {
                 _width = value;
@@ -48,7 +48,7 @@ namespace Gemini.Modules.MainWindow.ViewModels
         private double _height = 800.0;
         public double Height
         {
-            get { return _height; }
+            get => _height;
             set
             {
                 _height = value;
@@ -59,7 +59,7 @@ namespace Gemini.Modules.MainWindow.ViewModels
         private string _title = Resources.MainWindowDefaultTitle;
         public string Title
         {
-            get { return _title; }
+            get => _title;
             set
             {
                 _title = value;
@@ -70,7 +70,7 @@ namespace Gemini.Modules.MainWindow.ViewModels
         private ImageSource _icon;
         public ImageSource Icon
         {
-            get { return _icon; }
+            get => _icon;
             set
             {
                 _icon = value;
@@ -78,10 +78,7 @@ namespace Gemini.Modules.MainWindow.ViewModels
             }
         }
 
-        public IShell Shell
-        {
-            get { return _shell; }
-        }
+        public IShell Shell => _shell;
 
         void IPartImportsSatisfiedNotification.OnImportsSatisfied()
         {

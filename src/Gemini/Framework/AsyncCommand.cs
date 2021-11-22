@@ -48,10 +48,7 @@ namespace Gemini.Framework
 
         bool ICommand.CanExecute(object parameter) => CanExecute();
 
-        void ICommand.Execute(object parameter)
-        {
-            TryExecuteTask(ExecuteAsync());
-        }
+        void ICommand.Execute(object parameter) => TryExecuteTask(ExecuteAsync());
 
         private static async void TryExecuteTask(Task task)
         {

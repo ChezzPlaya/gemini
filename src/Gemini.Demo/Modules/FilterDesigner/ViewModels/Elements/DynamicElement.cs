@@ -9,15 +9,9 @@ namespace Gemini.Demo.Modules.FilterDesigner.ViewModels.Elements
     {
         private BitmapSource _previewImage;
 
-        public override BitmapSource PreviewImage
-        {
-            get { return _previewImage; }
-        }
+        public override BitmapSource PreviewImage => _previewImage;
 
-        protected DynamicElement()
-        {
-            SetOutputConnector("Output", Colors.DarkSeaGreen, () => PreviewImage);
-        }
+        protected DynamicElement() => SetOutputConnector("Output", Colors.DarkSeaGreen, () => PreviewImage);
 
         protected virtual void PrepareDrawingVisual(DrawingVisual drawingVisual)
         {
@@ -47,9 +41,6 @@ namespace Gemini.Demo.Modules.FilterDesigner.ViewModels.Elements
             RaiseOutputChanged();
         }
 
-        protected override void OnInputConnectorConnectionChanged()
-        {
-            UpdatePreviewImage();
-        }
+        protected override void OnInputConnectorConnectionChanged() => UpdatePreviewImage();
     }
 }

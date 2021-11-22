@@ -14,11 +14,8 @@ namespace Gemini.Modules.GraphEditor.Controls
         private ElementItemsControl _elementItemsControl;
         private ConnectionItemsControl _connectionItemsControl;
 
-        static GraphControl()
-        {
-            DefaultStyleKeyProperty.OverrideMetadata(typeof(GraphControl),
+        static GraphControl() => DefaultStyleKeyProperty.OverrideMetadata(typeof(GraphControl),
                 new FrameworkPropertyMetadata(typeof(GraphControl)));
-        }
 
         #region Dependency properties
 
@@ -27,8 +24,8 @@ namespace Gemini.Modules.GraphEditor.Controls
 
         public IEnumerable ElementsSource
         {
-            get { return (IEnumerable) GetValue(ElementsSourceProperty); }
-            set { SetValue(ElementsSourceProperty, value); }
+            get => (IEnumerable)GetValue(ElementsSourceProperty);
+            set => SetValue(ElementsSourceProperty, value);
         }
 
         public static readonly DependencyProperty ElementItemContainerStyleProperty = DependencyProperty.Register(
@@ -36,8 +33,8 @@ namespace Gemini.Modules.GraphEditor.Controls
 
         public Style ElementItemContainerStyle
         {
-            get { return (Style) GetValue(ElementItemContainerStyleProperty); }
-            set { SetValue(ElementItemContainerStyleProperty, value); }
+            get => (Style)GetValue(ElementItemContainerStyleProperty);
+            set => SetValue(ElementItemContainerStyleProperty, value);
         }
 
         public static readonly DependencyProperty ElementItemTemplateProperty = DependencyProperty.Register(
@@ -45,8 +42,8 @@ namespace Gemini.Modules.GraphEditor.Controls
 
         public DataTemplate ElementItemTemplate
         {
-            get { return (DataTemplate) GetValue(ElementItemTemplateProperty); }
-            set { SetValue(ElementItemTemplateProperty, value); }
+            get => (DataTemplate)GetValue(ElementItemTemplateProperty);
+            set => SetValue(ElementItemTemplateProperty, value);
         }
 
         public static readonly DependencyProperty ElementItemDataTemplateSelectorProperty = DependencyProperty.Register(
@@ -54,8 +51,8 @@ namespace Gemini.Modules.GraphEditor.Controls
 
         public DataTemplateSelector ElementItemDataTemplateSelector
         {
-            get { return (DataTemplateSelector) GetValue(ElementItemDataTemplateSelectorProperty); }
-            set { SetValue(ElementItemDataTemplateSelectorProperty, value); }
+            get => (DataTemplateSelector)GetValue(ElementItemDataTemplateSelectorProperty);
+            set => SetValue(ElementItemDataTemplateSelectorProperty, value);
         }
 
         public static readonly DependencyProperty ConnectionItemDataTemplateSelectorProperty = DependencyProperty.Register(
@@ -63,8 +60,8 @@ namespace Gemini.Modules.GraphEditor.Controls
 
         public DataTemplateSelector ConnectionItemDataTemplateSelector
         {
-            get { return (DataTemplateSelector) GetValue(ConnectionItemDataTemplateSelectorProperty); }
-            set { SetValue(ConnectionItemDataTemplateSelectorProperty, value); }
+            get => (DataTemplateSelector)GetValue(ConnectionItemDataTemplateSelectorProperty);
+            set => SetValue(ConnectionItemDataTemplateSelectorProperty, value);
         }
 
         public static readonly DependencyProperty ConnectionsSourceProperty = DependencyProperty.Register(
@@ -72,8 +69,8 @@ namespace Gemini.Modules.GraphEditor.Controls
 
         public IEnumerable ConnectionsSource
         {
-            get { return (IEnumerable) GetValue(ConnectionsSourceProperty); }
-            set { SetValue(ConnectionsSourceProperty, value); }
+            get => (IEnumerable)GetValue(ConnectionsSourceProperty);
+            set => SetValue(ConnectionsSourceProperty, value);
         }
 
         public static readonly DependencyProperty ConnectionItemContainerStyleProperty = DependencyProperty.Register(
@@ -81,8 +78,8 @@ namespace Gemini.Modules.GraphEditor.Controls
 
         public Style ConnectionItemContainerStyle
         {
-            get { return (Style) GetValue(ConnectionItemContainerStyleProperty); }
-            set { SetValue(ConnectionItemContainerStyleProperty, value); }
+            get => (Style)GetValue(ConnectionItemContainerStyleProperty);
+            set => SetValue(ConnectionItemContainerStyleProperty, value);
         }
 
         public static readonly DependencyProperty ConnectionItemTemplateProperty = DependencyProperty.Register(
@@ -90,8 +87,8 @@ namespace Gemini.Modules.GraphEditor.Controls
 
         public DataTemplate ConnectionItemTemplate
         {
-            get { return (DataTemplate) GetValue(ConnectionItemTemplateProperty); }
-            set { SetValue(ConnectionItemTemplateProperty, value); }
+            get => (DataTemplate)GetValue(ConnectionItemTemplateProperty);
+            set => SetValue(ConnectionItemTemplateProperty, value);
         }
 
         #endregion
@@ -132,15 +129,9 @@ namespace Gemini.Modules.GraphEditor.Controls
 
         public event SelectionChangedEventHandler SelectionChanged;
         public event SelectionChangedEventHandler ConnectionSelectionChanged;
-        public IList SelectedElements
-        {
-            get { return _elementItemsControl.SelectedItems; }
-        }
+        public IList SelectedElements => _elementItemsControl.SelectedItems;
 
-        public IList SelectedConnections
-        {
-            get { return _connectionItemsControl.SelectedItems; }
-        }
+        public IList SelectedConnections => _connectionItemsControl.SelectedItems;
 
         public void SelectAll()
         {
@@ -170,17 +161,9 @@ namespace Gemini.Modules.GraphEditor.Controls
             base.OnApplyTemplate();
         }
 
-        private void OnConnectionsControlSelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            ConnectionSelectionChanged?.Invoke(this, e);
-        }
+        private void OnConnectionsControlSelectionChanged(object sender, SelectionChangedEventArgs e) => ConnectionSelectionChanged?.Invoke(this, e);
 
-        private void OnElementItemsControlSelectChanged(object sender, SelectionChangedEventArgs e)
-        {
-            var handler = SelectionChanged;
-            if (handler != null)
-                handler(this, new SelectionChangedEventArgs(Selector.SelectionChangedEvent, e.RemovedItems, e.AddedItems));
-        }
+        private void OnElementItemsControlSelectChanged(object sender, SelectionChangedEventArgs e) => SelectionChanged?.Invoke(this, new SelectionChangedEventArgs(Selector.SelectionChangedEvent, e.RemovedItems, e.AddedItems));
 
         protected override void OnMouseLeftButtonDown(MouseButtonEventArgs e)
         {
@@ -189,14 +172,11 @@ namespace Gemini.Modules.GraphEditor.Controls
             base.OnMouseLeftButtonDown(e);
         }
 
-        internal int GetMaxZIndex()
-        {
-            return _elementItemsControl.Items.Cast<object>()
-                .Select(item => (ElementItem) _elementItemsControl.ItemContainerGenerator.ContainerFromItem(item))
+        internal int GetMaxZIndex() => _elementItemsControl.Items.Cast<object>()
+                .Select(item => (ElementItem)_elementItemsControl.ItemContainerGenerator.ContainerFromItem(item))
                 .Select(elementItem => elementItem.ZIndex)
                 .Concat(new[] { 0 })
                 .Max();
-        }
 
         #region Connection dragging
 

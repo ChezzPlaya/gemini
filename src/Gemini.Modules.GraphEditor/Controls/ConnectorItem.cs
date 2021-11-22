@@ -11,11 +11,8 @@ namespace Gemini.Modules.GraphEditor.Controls
         private Point _lastMousePosition;
         private bool _isDragging;
 
-        static ConnectorItem()
-        {
-            DefaultStyleKeyProperty.OverrideMetadata(typeof(ConnectorItem),
+        static ConnectorItem() => DefaultStyleKeyProperty.OverrideMetadata(typeof(ConnectorItem),
                 new FrameworkPropertyMetadata(typeof(ConnectorItem)));
-        }
 
         #region Dependency properties
 
@@ -24,8 +21,8 @@ namespace Gemini.Modules.GraphEditor.Controls
 
         public Point Position
         {
-            get { return (Point) GetValue(PositionProperty); }
-            set { SetValue(PositionProperty, value); }
+            get => (Point)GetValue(PositionProperty);
+            set => SetValue(PositionProperty, value);
         }
 
         #endregion
@@ -46,25 +43,13 @@ namespace Gemini.Modules.GraphEditor.Controls
 
         #endregion
 
-        private GraphControl ParentGraphControl
-        {
-            get { return VisualTreeUtility.FindParent<GraphControl>(this); }
-        }
+        private GraphControl ParentGraphControl => VisualTreeUtility.FindParent<GraphControl>(this);
 
-        internal ElementItem ParentElementItem
-        {
-            get { return VisualTreeUtility.FindParent<ElementItem>(this); }
-        }
+        internal ElementItem ParentElementItem => VisualTreeUtility.FindParent<ElementItem>(this);
 
-        public ConnectorItem()
-        {
-            LayoutUpdated += OnLayoutUpdated;
-        }
+        public ConnectorItem() => LayoutUpdated += OnLayoutUpdated;
 
-        private void OnLayoutUpdated(object sender, EventArgs e)
-        {
-            UpdatePosition();
-        }
+        private void OnLayoutUpdated(object sender, EventArgs e) => UpdatePosition();
 
         /// <summary>
         /// Computes the coordinates, relative to the parent <see cref="GraphControl" />, of this connector.

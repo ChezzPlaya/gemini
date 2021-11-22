@@ -17,22 +17,13 @@ namespace Gemini.Framework.Results
 		private readonly IShell _shell;
 #pragma warning restore 649
 
-        public OpenDocumentResult(IDocument editor)
-		{
-			_editor = editor;
-		}
+        public OpenDocumentResult(IDocument editor) => _editor = editor;
 
-		public OpenDocumentResult(string path)
-		{
-			_path = path;
-		}
+        public OpenDocumentResult(string path) => _path = path;
 
-		public OpenDocumentResult(Type editorType)
-		{
-			_editorType = editorType;
-		}
+        public OpenDocumentResult(Type editorType) => _editorType = editorType;
 
-		public override void Execute(CoroutineExecutionContext context)
+        public override void Execute(CoroutineExecutionContext context)
 		{
 			var editor = _editor ??
 				(string.IsNullOrEmpty(_path)
@@ -45,18 +36,15 @@ namespace Gemini.Framework.Results
 				return;
 			}
 
-			if (_setData != null)
-				_setData(editor);
+            _setData?.Invoke(editor);
 
-			if (_onConfigure != null)
-				_onConfigure(editor);
+            _onConfigure?.Invoke(editor);
 
-			editor.Deactivated += (s, e) =>
+            editor.Deactivated += (s, e) =>
 			{
                 if (e.WasClosed)
                 {
-                    if (_onShutDown != null)
-                        _onShutDown(editor);
+                    _onShutDown?.Invoke(editor);
                 }
 
                 return System.Threading.Tasks.Task.CompletedTask;
@@ -70,9 +58,6 @@ namespace Gemini.Framework.Results
                 });
 		}
 
-		private static IDocument GetEditor(string path)
-		{
-		    return OpenFileCommandHandler.GetEditor(path).Result;
-		}
-	}
+        private static IDocument GetEditor(string path) => OpenFileCommandHandler.GetEditor(path).Result;
+    }
 }

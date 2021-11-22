@@ -7,22 +7,13 @@ namespace Gemini.Modules.Output.Views
 	/// </summary>
 	public partial class OutputView : UserControl, IOutputView
 	{
-		public OutputView()
-		{
-			InitializeComponent();
-		}
+        public OutputView() => InitializeComponent();
 
-		public void ScrollToEnd()
-		{
-			outputText.ScrollToEnd();
-		}
+        public void ScrollToEnd() => outputText.ScrollToEnd();
 
-		public void Clear()
-		{
-			outputText.Clear();
-		}
+        public void Clear() => outputText.Clear();
 
-		public void AppendText(string text)
+        public void AppendText(string text)
 		{
 			outputText.AppendText(text);
 			ScrollToEnd();

@@ -16,10 +16,7 @@ namespace Gemini.Modules.ErrorList.Commands
         private readonly IErrorList _errorList;
 
         [ImportingConstructor]
-        public ToggleErrorsWarningsMessagesCommandHandler(IErrorList errorList)
-        {
-            _errorList = errorList;
-        }
+        public ToggleErrorsWarningsMessagesCommandHandler(IErrorList errorList) => _errorList = errorList;
 
         void ICommandHandler<ToggleErrorsCommandDefinition>.Update(Command command)
         {
@@ -68,19 +65,10 @@ namespace Gemini.Modules.ErrorList.Commands
             return string.Format(plural, number);
         }
 
-        private int ErrorItemCount
-        {
-            get { return _errorList.Items.Count(x => x.ItemType == ErrorListItemType.Error); }
-        }
+        private int ErrorItemCount => _errorList.Items.Count(x => x.ItemType == ErrorListItemType.Error);
 
-        private int WarningItemCount
-        {
-            get { return _errorList.Items.Count(x => x.ItemType == ErrorListItemType.Warning); }
-        }
+        private int WarningItemCount => _errorList.Items.Count(x => x.ItemType == ErrorListItemType.Warning);
 
-        private int MessageItemCount
-        {
-            get { return _errorList.Items.Count(x => x.ItemType == ErrorListItemType.Message); }
-        }
+        private int MessageItemCount => _errorList.Items.Count(x => x.ItemType == ErrorListItemType.Message);
     }
 }

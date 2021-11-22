@@ -5,10 +5,7 @@ namespace Gemini.Framework.Controls
 {
     public class ExpanderEx : Expander
     {
-        static ExpanderEx()
-        {
-            DefaultStyleKeyProperty.OverrideMetadata(typeof(ExpanderEx),
+        static ExpanderEx() => DefaultStyleKeyProperty.OverrideMetadata(typeof(ExpanderEx),
                 new FrameworkPropertyMetadata(typeof(ExpanderEx)));
-        } 
     }
 }

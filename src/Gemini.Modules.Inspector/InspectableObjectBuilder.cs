@@ -2,9 +2,6 @@
 {
     public class InspectableObjectBuilder : InspectorBuilder<InspectableObjectBuilder>
     {
-        public InspectableObject ToInspectableObject()
-        {
-            return new InspectableObject(Inspectors);
-        }
+        public InspectableObject ToInspectableObject() => new InspectableObject(Inspectors);
     }
 }

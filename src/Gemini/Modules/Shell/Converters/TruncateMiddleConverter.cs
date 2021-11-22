@@ -19,8 +19,7 @@ namespace Gemini.Modules.Shell.Converters
             int frontLength = 15;
             int backLength = result.EndsWith("*") ? 17 : 16;
 
-            var lengths = parameter as int[];
-            if (lengths != null && lengths.Length == 2)
+            if (parameter is int[] lengths && lengths.Length == 2)
             {
                 frontLength = lengths[0];
                 backLength = result.EndsWith("*") ? lengths[1] + 1 : lengths[1];
@@ -34,9 +33,6 @@ namespace Gemini.Modules.Shell.Converters
             return result;
         }
 
-        public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
-        {
-            throw new NotSupportedException();
-        }
+        public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture) => throw new NotSupportedException();
     }
 }

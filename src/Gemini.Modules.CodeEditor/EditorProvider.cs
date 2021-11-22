@@ -17,10 +17,7 @@ namespace Gemini.Modules.CodeEditor
         private readonly LanguageDefinitionManager _languageDefinitionManager;
 
         [ImportingConstructor]
-        public EditorProvider(LanguageDefinitionManager languageDefinitionManager)
-        {
-            _languageDefinitionManager = languageDefinitionManager;
-        }
+        public EditorProvider(LanguageDefinitionManager languageDefinitionManager) => _languageDefinitionManager = languageDefinitionManager;
 
         public IEnumerable<EditorFileType> FileTypes => _languageDefinitionManager.LanguageDefinitions
             .Select(languageDefinition => new EditorFileType

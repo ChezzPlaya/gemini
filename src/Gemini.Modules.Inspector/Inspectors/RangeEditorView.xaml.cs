@@ -19,9 +19,6 @@ namespace Gemini.Modules.Inspector.Inspectors
     /// </summary>
     public partial class RangeEditorView : UserControl
     {
-        public RangeEditorView()
-        {
-            InitializeComponent();
-        }
+        public RangeEditorView() => InitializeComponent();
     }
 }

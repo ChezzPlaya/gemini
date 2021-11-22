@@ -55,9 +55,6 @@ namespace Gemini.Framework.Commands
             _populateMethod.Invoke(_commandHandler, new object[] { command, commands });
         }
 
-        public Task Run(Command command)
-        {
-            return (Task) _runMethod.Invoke(_commandHandler, new object[] { command });
-        }
+        public Task Run(Command command) => (Task)_runMethod.Invoke(_commandHandler, new object[] { command });
     }
 }

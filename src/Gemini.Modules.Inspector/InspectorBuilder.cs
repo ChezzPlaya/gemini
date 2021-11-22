@@ -16,15 +16,9 @@ namespace Gemini.Modules.Inspector
     {
         private readonly List<IInspector> _inspectors;
 
-        protected List<IInspector> Inspectors
-        {
-            get { return _inspectors; }
-        }
+        protected List<IInspector> Inspectors => _inspectors;
 
-        public InspectorBuilder()
-        {
-            _inspectors = new List<IInspector>();
-        }
+        public InspectorBuilder() => _inspectors = new List<IInspector>();
 
         public TBuilder WithCollapsibleGroup(string name, Func<CollapsibleGroupBuilder, CollapsibleGroupBuilder> callback)
         {
@@ -33,41 +27,20 @@ namespace Gemini.Modules.Inspector
             return (TBuilder) this;
         }
 
-        public TBuilder WithCheckBoxEditor<T>(T instance, Expression<Func<T, bool>> propertyExpression)
-        {
-            return WithEditor<T, bool, CheckBoxEditorViewModel>(instance, propertyExpression);
-        }
+        public TBuilder WithCheckBoxEditor<T>(T instance, Expression<Func<T, bool>> propertyExpression) => WithEditor<T, bool, CheckBoxEditorViewModel>(instance, propertyExpression);
 
-        public TBuilder WithColorEditor<T>(T instance, Expression<Func<T, Color>> propertyExpression)
-        {
-            return WithEditor<T, Color, ColorEditorViewModel>(instance, propertyExpression);
-        }
+        public TBuilder WithColorEditor<T>(T instance, Expression<Func<T, Color>> propertyExpression) => WithEditor<T, Color, ColorEditorViewModel>(instance, propertyExpression);
 
-        public TBuilder WithEnumEditor<T, TProperty>(T instance, Expression<Func<T, TProperty>> propertyExpression)
-        {
-            return WithEditor<T, TProperty, EnumEditorViewModel<TProperty>>(instance, propertyExpression);
-        }
+        public TBuilder WithEnumEditor<T, TProperty>(T instance, Expression<Func<T, TProperty>> propertyExpression) => WithEditor<T, TProperty, EnumEditorViewModel<TProperty>>(instance, propertyExpression);
 
-        public TBuilder WithPoint3DEditor<T>(T instance, Expression<Func<T, Point3D>> propertyExpression)
-        {
-            return WithEditor<T, Point3D, Point3DEditorViewModel>(instance, propertyExpression);
-        }
+        public TBuilder WithPoint3DEditor<T>(T instance, Expression<Func<T, Point3D>> propertyExpression) => WithEditor<T, Point3D, Point3DEditorViewModel>(instance, propertyExpression);
 
-        public TBuilder WithRangeEditor<T>(T instance, Expression<Func<T, float>> propertyExpression, float minimum, float maximum)
-        {
-            return WithEditor(instance, propertyExpression, new RangeEditorViewModel<float>(minimum, maximum));
-        }
+        public TBuilder WithRangeEditor<T>(T instance, Expression<Func<T, float>> propertyExpression, float minimum, float maximum) => WithEditor(instance, propertyExpression, new RangeEditorViewModel<float>(minimum, maximum));
 
-        public TBuilder WithRangeEditor<T>(T instance, Expression<Func<T, double>> propertyExpression, double minimum, double maximum)
-        {
-            return WithEditor(instance, propertyExpression, new RangeEditorViewModel<double>(minimum, maximum));
-        }
+        public TBuilder WithRangeEditor<T>(T instance, Expression<Func<T, double>> propertyExpression, double minimum, double maximum) => WithEditor(instance, propertyExpression, new RangeEditorViewModel<double>(minimum, maximum));
 
         public TBuilder WithEditor<T, TProperty, TEditor>(T instance, Expression<Func<T, TProperty>> propertyExpression)
-            where TEditor : IEditor, new()
-        {
-            return WithEditor(instance, propertyExpression, new TEditor());
-        }
+            where TEditor : IEditor, new() => WithEditor(instance, propertyExpression, new TEditor());
 
         public TBuilder WithEditor<T, TProperty, TEditor>(T instance, Expression<Func<T, TProperty>> propertyExpression, TEditor editor)
             where TEditor : IEditor

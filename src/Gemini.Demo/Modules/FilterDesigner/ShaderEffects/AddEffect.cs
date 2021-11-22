@@ -9,21 +9,21 @@ namespace Gemini.Demo.Modules.FilterDesigner.ShaderEffects
             "Input1", typeof(AddEffect), 0);
 
 		public Brush Input1
-		{
-		    get { return (Brush) GetValue(Input1Property); }
-		    set { SetValue(Input1Property, value); }
-		}
+        {
+            get => (Brush)GetValue(Input1Property);
+            set => SetValue(Input1Property, value);
+        }
 
         public static readonly DependencyProperty Input2Property = RegisterPixelShaderSamplerProperty(
             "Input2", typeof(AddEffect), 1);
 
 		public Brush Input2
-		{
-		    get { return (Brush) GetValue(Input2Property); }
-		    set { SetValue(Input2Property, value); }
-		}
+        {
+            get => (Brush)GetValue(Input2Property);
+            set => SetValue(Input2Property, value);
+        }
 
-		public AddEffect()
+        public AddEffect()
 		{
 			UpdateShaderValue(Input1Property);
             UpdateShaderValue(Input2Property);

@@ -15,10 +15,7 @@ namespace Gemini.Modules.Toolbox.Views
         private bool _draggingItem;
         private Point _mouseStartPosition;
 
-        public ToolboxView()
-        {
-            InitializeComponent();
-        }
+        public ToolboxView() => InitializeComponent();
 
         private void OnListBoxPreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {

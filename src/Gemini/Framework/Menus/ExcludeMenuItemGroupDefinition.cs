@@ -3,14 +3,8 @@
     public class ExcludeMenuItemGroupDefinition
     {
         private readonly MenuItemGroupDefinition _menuItemGroupDefinitionToExclude;
-        public MenuItemGroupDefinition MenuItemGroupDefinitionToExclude 
-        {
-            get { return _menuItemGroupDefinitionToExclude; }
-        }
+        public MenuItemGroupDefinition MenuItemGroupDefinitionToExclude => _menuItemGroupDefinitionToExclude;
 
-        public ExcludeMenuItemGroupDefinition(MenuItemGroupDefinition menuItemGroupDefinition)
-        {
-            _menuItemGroupDefinitionToExclude = menuItemGroupDefinition;
-        }
+        public ExcludeMenuItemGroupDefinition(MenuItemGroupDefinition menuItemGroupDefinition) => _menuItemGroupDefinitionToExclude = menuItemGroupDefinition;
     }
 }

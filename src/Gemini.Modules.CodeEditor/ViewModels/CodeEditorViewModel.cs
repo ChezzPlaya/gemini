@@ -28,25 +28,13 @@ namespace Gemini.Modules.CodeEditor.ViewModels
         private ICodeEditorView _view;
 
         [ImportingConstructor]
-        public CodeEditorViewModel(LanguageDefinitionManager languageDefinitionManager)
-        {
-            _languageDefinitionManager = languageDefinitionManager;
-        }
+        public CodeEditorViewModel(LanguageDefinitionManager languageDefinitionManager) => _languageDefinitionManager = languageDefinitionManager;
 
-        public override bool ShouldReopenOnStart
-        {
-            get { return true; }
-        }
+        public override bool ShouldReopenOnStart => true;
 
-        public override void SaveState(BinaryWriter writer)
-        {
-            writer.Write(FilePath);
-        }
+        public override void SaveState(BinaryWriter writer) => writer.Write(FilePath);
 
-        public override void LoadState(BinaryReader reader)
-        {
-            Load(reader.ReadString());
-        }
+        public override void LoadState(BinaryReader reader) => Load(reader.ReadString());
 
         protected override void OnViewLoaded(object view)
         {
@@ -58,13 +46,9 @@ namespace Gemini.Modules.CodeEditor.ViewModels
             }
         }
 
-        public override bool Equals(object obj)
-        {
-            var other = obj as CodeEditorViewModel;
-            return other != null
+        public override bool Equals(object obj) => obj is CodeEditorViewModel other
                 && string.Equals(FilePath, other.FilePath, StringComparison.InvariantCultureIgnoreCase)
                 && string.Equals(FileName, other.FileName, StringComparison.InvariantCultureIgnoreCase);
-        }
 
         protected override Task DoNew()
         {
@@ -110,17 +94,11 @@ namespace Gemini.Modules.CodeEditor.ViewModels
             SetLanguage(languageDefinition);
         }
 
-        private void SetLanguage(ILanguageDefinition languageDefinition)
-        {
-            _view.TextEditor.SyntaxHighlighting = (languageDefinition != null)
+        private void SetLanguage(ILanguageDefinition languageDefinition) => _view.TextEditor.SyntaxHighlighting = (languageDefinition != null)
                 ? languageDefinition.SyntaxHighlighting
                 : null;
-        }
 
-        public void ApplySettings()
-        {
-            _view?.ApplySettings();
-        }
+        public void ApplySettings() => _view?.ApplySettings();
 
         #region CommandHandlers
         void ICommandHandler<WordWrapCommandDefinition>.Update(Command command)

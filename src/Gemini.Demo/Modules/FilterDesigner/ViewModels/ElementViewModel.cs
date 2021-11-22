@@ -19,7 +19,7 @@ namespace Gemini.Demo.Modules.FilterDesigner.ViewModels
         [Browsable(false)]
         public double X
         {
-            get { return _x; }
+            get => _x;
             set
             {
                 _x = value;
@@ -32,7 +32,7 @@ namespace Gemini.Demo.Modules.FilterDesigner.ViewModels
         [Browsable(false)]
         public double Y
         {
-            get { return _y; }
+            get => _y;
             set
             {
                 _y = value;
@@ -45,7 +45,7 @@ namespace Gemini.Demo.Modules.FilterDesigner.ViewModels
         [Browsable(false)]
         public string Name
         {
-            get { return _name; }
+            get => _name;
             set
             {
                 _name = value;
@@ -58,7 +58,7 @@ namespace Gemini.Demo.Modules.FilterDesigner.ViewModels
         [Browsable(false)]
         public bool IsSelected
         {
-            get { return _isSelected; }
+            get => _isSelected;
             set
             {
                 _isSelected = value;
@@ -69,15 +69,12 @@ namespace Gemini.Demo.Modules.FilterDesigner.ViewModels
         public abstract BitmapSource PreviewImage { get; }
 
         private readonly BindableCollection<InputConnectorViewModel> _inputConnectors;
-        public IList<InputConnectorViewModel> InputConnectors
-        {
-            get { return _inputConnectors; }
-        }
+        public IList<InputConnectorViewModel> InputConnectors => _inputConnectors;
 
         private OutputConnectorViewModel _outputConnector;
         public OutputConnectorViewModel OutputConnector
         {
-            get { return _outputConnector; }
+            get => _outputConnector;
             set
             {
                 _outputConnector = value;
@@ -85,15 +82,9 @@ namespace Gemini.Demo.Modules.FilterDesigner.ViewModels
             }
         }
 
-        public IEnumerable<ConnectionViewModel> AttachedConnections
-        {
-            get
-            {
-                return _inputConnectors.Select(x => x.Connection)
+        public IEnumerable<ConnectionViewModel> AttachedConnections => _inputConnectors.Select(x => x.Connection)
                     .Union(_outputConnector.Connections)
                     .Where(x => x != null);
-            }
-        }
 
         protected ElementViewModel()
         {
@@ -108,20 +99,13 @@ namespace Gemini.Demo.Modules.FilterDesigner.ViewModels
             _inputConnectors.Add(inputConnector);
         }
 
-        protected void SetOutputConnector(string name, Color color, Func<BitmapSource> valueCallback)
-        {
-            OutputConnector = new OutputConnectorViewModel(this, name, color, valueCallback);
-        }
+        protected void SetOutputConnector(string name, Color color, Func<BitmapSource> valueCallback) => OutputConnector = new OutputConnectorViewModel(this, name, color, valueCallback);
 
         protected virtual void OnInputConnectorConnectionChanged()
         {
             
         }
 
-        protected virtual void RaiseOutputChanged()
-        {
-            EventHandler handler = OutputChanged;
-            if (handler != null) handler(this, EventArgs.Empty);
-        }
+        protected virtual void RaiseOutputChanged() => OutputChanged?.Invoke(this, EventArgs.Empty);
     }
 }

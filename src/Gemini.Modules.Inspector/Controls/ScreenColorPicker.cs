@@ -14,11 +14,8 @@ namespace Gemini.Modules.Inspector.Controls
 {
     public class ScreenColorPicker : Control
     {
-        static ScreenColorPicker()
-        {
-            DefaultStyleKeyProperty.OverrideMetadata(typeof(ScreenColorPicker),
+        static ScreenColorPicker() => DefaultStyleKeyProperty.OverrideMetadata(typeof(ScreenColorPicker),
                 new FrameworkPropertyMetadata(typeof(ScreenColorPicker)));
-        }
 
         public event EventHandler PickingStarted;
         public event EventHandler PickingCancelled;
@@ -110,38 +107,19 @@ namespace Gemini.Modules.Inspector.Controls
             return new ColorEventArgs(Colors.Black);
         }
 
-        private void RaisePickingStarted(EventArgs e)
-        {
-            var handler = PickingStarted;
-            if (handler != null) handler(this, e);
-        }
+        private void RaisePickingStarted(EventArgs e) => PickingStarted?.Invoke(this, e);
 
-        private void RaisePickingCancelled(EventArgs e)
-        {
-            var handler = PickingCancelled;
-            if (handler != null) handler(this, e);
-        }
+        private void RaisePickingCancelled(EventArgs e) => PickingCancelled?.Invoke(this, e);
 
-        private void RaiseColorHovered(ColorEventArgs e)
-        {
-            var handler = ColorHovered;
-            if (handler != null) handler(this, e);
-        }
+        private void RaiseColorHovered(ColorEventArgs e) => ColorHovered?.Invoke(this, e);
 
-        private void RaiseColorPicked(ColorEventArgs e)
-        {
-            var handler = ColorPicked;
-            if (handler != null) handler(this, e);
-        }
+        private void RaiseColorPicked(ColorEventArgs e) => ColorPicked?.Invoke(this, e);
     }
 
     public class ColorEventArgs : EventArgs
     {
         public Color Color { get; private set; }
 
-        public ColorEventArgs(Color color)
-        {
-            Color = color;
-        }
+        public ColorEventArgs(Color color) => Color = color;
     }
 }

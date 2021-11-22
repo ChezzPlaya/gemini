@@ -38,34 +38,22 @@ namespace Gemini.Modules.GraphEditor.Controls
         /// <summary>
         /// The width of the content (with 'ContentScale' applied).
         /// </summary>
-        public double ExtentWidth
-        {
-            get { return _unScaledExtent.Width * ContentScale; }
-        }
+        public double ExtentWidth => _unScaledExtent.Width * ContentScale;
 
         /// <summary>
         /// The height of the content (with 'ContentScale' applied).
         /// </summary>
-        public double ExtentHeight
-        {
-            get { return _unScaledExtent.Height * ContentScale; }
-        }
+        public double ExtentHeight => _unScaledExtent.Height * ContentScale;
 
         /// <summary>
         /// Get the width of the viewport onto the content.
         /// </summary>
-        public double ViewportWidth
-        {
-            get { return _viewport.Width; }
-        }
+        public double ViewportWidth => _viewport.Width;
 
         /// <summary>
         /// Get the height of the viewport onto the content.
         /// </summary>
-        public double ViewportHeight
-        {
-            get { return _viewport.Height; }
-        }
+        public double ViewportHeight => _viewport.Height;
 
         /// <summary>
         /// Reference to the ScrollViewer that is wrapped (in XAML) around the ZoomAndPanControl.
@@ -76,18 +64,12 @@ namespace Gemini.Modules.GraphEditor.Controls
         /// <summary>
         /// The offset of the horizontal scrollbar.
         /// </summary>
-        public double HorizontalOffset
-        {
-            get { return ContentOffsetX * ContentScale; }
-        }
+        public double HorizontalOffset => ContentOffsetX * ContentScale;
 
         /// <summary>
         /// The offset of the vertical scrollbar.
         /// </summary>
-        public double VerticalOffset
-        {
-            get { return ContentOffsetY * ContentScale; }
-        }
+        public double VerticalOffset => ContentOffsetY * ContentScale;
 
         /// <summary>
         /// Called when the offset of the horizontal scrollbar has been set.
@@ -132,66 +114,42 @@ namespace Gemini.Modules.GraphEditor.Controls
         /// <summary>
         /// Shift the content offset one line up.
         /// </summary>
-        public void LineUp()
-        {
-            ContentOffsetY -= (ContentViewportHeight / 10);
-        }
+        public void LineUp() => ContentOffsetY -= (ContentViewportHeight / 10);
 
         /// <summary>
         /// Shift the content offset one line down.
         /// </summary>
-        public void LineDown()
-        {
-            ContentOffsetY += (ContentViewportHeight / 10);
-        }
+        public void LineDown() => ContentOffsetY += (ContentViewportHeight / 10);
 
         /// <summary>
         /// Shift the content offset one line left.
         /// </summary>
-        public void LineLeft()
-        {
-            ContentOffsetX -= (ContentViewportWidth / 10);
-        }
+        public void LineLeft() => ContentOffsetX -= (ContentViewportWidth / 10);
 
         /// <summary>
         /// Shift the content offset one line right.
         /// </summary>
-        public void LineRight()
-        {
-            ContentOffsetX += (ContentViewportWidth / 10);
-        }
+        public void LineRight() => ContentOffsetX += (ContentViewportWidth / 10);
 
         /// <summary>
         /// Shift the content offset one page up.
         /// </summary>
-        public void PageUp()
-        {
-            ContentOffsetY -= ContentViewportHeight;
-        }
+        public void PageUp() => ContentOffsetY -= ContentViewportHeight;
 
         /// <summary>
         /// Shift the content offset one page down.
         /// </summary>
-        public void PageDown()
-        {
-            ContentOffsetY += ContentViewportHeight;
-        }
+        public void PageDown() => ContentOffsetY += ContentViewportHeight;
 
         /// <summary>
         /// Shift the content offset one page left.
         /// </summary>
-        public void PageLeft()
-        {
-            ContentOffsetX -= ContentViewportWidth;
-        }
+        public void PageLeft() => ContentOffsetX -= ContentViewportWidth;
 
         /// <summary>
         /// Shift the content offset one page right.
         /// </summary>
-        public void PageRight()
-        {
-            ContentOffsetX += ContentViewportWidth;
-        }
+        public void PageRight() => ContentOffsetX += ContentViewportWidth;
 
         /// <summary>
         /// Don't handle mouse wheel input from the ScrollViewer, the mouse wheel is

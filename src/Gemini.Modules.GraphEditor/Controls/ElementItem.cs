@@ -11,11 +11,8 @@ namespace Gemini.Modules.GraphEditor.Controls
         private bool _isLeftMouseButtonDown;
         private bool _isDragging;
 
-        static ElementItem()
-        {
-            DefaultStyleKeyProperty.OverrideMetadata(typeof(ElementItem),
+        static ElementItem() => DefaultStyleKeyProperty.OverrideMetadata(typeof(ElementItem),
                 new FrameworkPropertyMetadata(typeof(ElementItem)));
-        }
 
         #region Dependency properties
 
@@ -25,8 +22,8 @@ namespace Gemini.Modules.GraphEditor.Controls
 
         public double X
         {
-            get { return (double) GetValue(XProperty); }
-            set { SetValue(XProperty, value); }
+            get => (double)GetValue(XProperty);
+            set => SetValue(XProperty, value);
         }
 
         public static readonly DependencyProperty YProperty = DependencyProperty.Register(
@@ -35,8 +32,8 @@ namespace Gemini.Modules.GraphEditor.Controls
 
         public double Y
         {
-            get { return (double) GetValue(YProperty); }
-            set { SetValue(YProperty, value); }
+            get => (double)GetValue(YProperty);
+            set => SetValue(YProperty, value);
         }
 
         public static readonly DependencyProperty ZIndexProperty = DependencyProperty.Register(
@@ -45,16 +42,13 @@ namespace Gemini.Modules.GraphEditor.Controls
 
         public int ZIndex
         {
-            get { return (int) GetValue(ZIndexProperty); }
-            set { SetValue(ZIndexProperty, value); }
+            get => (int)GetValue(ZIndexProperty);
+            set => SetValue(ZIndexProperty, value);
         }
 
         #endregion
 
-        private GraphControl ParentGraphControl
-        {
-            get { return VisualTreeUtility.FindParent<GraphControl>(this); }
-        }
+        private GraphControl ParentGraphControl => VisualTreeUtility.FindParent<GraphControl>(this);
 
         #region Mouse input
 

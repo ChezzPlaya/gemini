@@ -14,10 +14,7 @@ namespace Gemini.Modules.Shell.Commands
         private readonly IShell _shell;
 
         [ImportingConstructor]
-        public SwitchToDocumentListCommandHandler(IShell shell)
-        {
-            _shell = shell;
-        }
+        public SwitchToDocumentListCommandHandler(IShell shell) => _shell = shell;
 
         public void Populate(Command command, List<Command> commands)
         {
@@ -33,9 +30,6 @@ namespace Gemini.Modules.Shell.Commands
             }
         }
 
-        public Task Run(Command command)
-        {
-            return _shell.OpenDocumentAsync((IDocument) command.Tag);
-        }
+        public Task Run(Command command) => _shell.OpenDocumentAsync((IDocument)command.Tag);
     }
 }

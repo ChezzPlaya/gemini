@@ -49,14 +49,8 @@ namespace Gemini.Modules.Inspector.Inspectors
             _stringConverter = stringConverter;
         }
 
-        public void Execute()
-        {
-            _boundPropertyDescriptor.Value = _newValue;
-        }
+        public void Execute() => _boundPropertyDescriptor.Value = _newValue;
 
-        public void Undo()
-        {
-            _boundPropertyDescriptor.Value = _originalValue;
-        }
+        public void Undo() => _boundPropertyDescriptor.Value = _originalValue;
     }
 }

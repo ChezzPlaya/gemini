@@ -15,10 +15,7 @@ namespace Gemini.Modules.Shell.Commands
         private readonly IShell _shell;
 
         [ImportingConstructor]
-        public SaveAllFilesCommandHandler(IShell shell)
-        {
-            _shell = shell;
-        }
+        public SaveAllFilesCommandHandler(IShell shell) => _shell = shell;
 
         public override async Task Run(Command command)
         {

@@ -92,11 +92,6 @@ namespace Gemini.Framework.Themes
             return true;
         }
 
-        private void RaiseCurrentThemeChanged(EventArgs args)
-        {
-            var handler = CurrentThemeChanged;
-            if (handler != null)
-                handler(this, args);
-        }
+        private void RaiseCurrentThemeChanged(EventArgs args) => CurrentThemeChanged?.Invoke(this, args);
     }
 }

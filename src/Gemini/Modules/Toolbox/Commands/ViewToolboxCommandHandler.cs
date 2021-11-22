@@ -12,10 +12,7 @@ namespace Gemini.Modules.Toolbox.Commands
         private readonly IShell _shell;
 
         [ImportingConstructor]
-        public ViewToolboxCommandHandler(IShell shell)
-        {
-            _shell = shell;
-        }
+        public ViewToolboxCommandHandler(IShell shell) => _shell = shell;
 
         public override Task Run(Command command)
         {

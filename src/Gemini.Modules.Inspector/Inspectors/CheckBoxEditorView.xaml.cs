@@ -19,9 +19,6 @@ namespace Gemini.Modules.Inspector.Inspectors
     /// </summary>
     public partial class CheckBoxEditorView : UserControl
     {
-        public CheckBoxEditorView()
-        {
-            InitializeComponent();
-        }
+        public CheckBoxEditorView() => InitializeComponent();
     }
 }

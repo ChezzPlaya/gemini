@@ -53,10 +53,7 @@ namespace Gemini.Modules.Inspector.Inspectors
             }
         }
 
-        public override string Name
-        {
-            get { return BoundPropertyDescriptor.PropertyDescriptor.DisplayName; }
-        }
+        public override string Name => BoundPropertyDescriptor.PropertyDescriptor.DisplayName;
 
         public string Description
         {
@@ -93,25 +90,25 @@ namespace Gemini.Modules.Inspector.Inspectors
 
         public BoundPropertyDescriptor BoundPropertyDescriptor
         {
-            get { return _boundPropertyDescriptor; }
+            get => _boundPropertyDescriptor;
             set
             {
                 CleanupPropertyChanged();
 
                 _boundPropertyDescriptor = value;
 
-                if (value.PropertyDescriptor.SupportsChangeEvents) {
+                if (value.PropertyDescriptor.SupportsChangeEvents)
+                {
                     value.ValueChanged += OnValueChanged;
-                } else if (typeof(INotifyPropertyChanged).IsAssignableFrom(value.PropertyOwner.GetType())) {
+                }
+                else if (typeof(INotifyPropertyChanged).IsAssignableFrom(value.PropertyOwner.GetType()))
+                {
                     ((INotifyPropertyChanged)value.PropertyOwner).PropertyChanged += OnPropertyChanged;
                 }
             }
         }
 
-        public override bool IsReadOnly
-        {
-            get { return BoundPropertyDescriptor.PropertyDescriptor.IsReadOnly; }
-        }
+        public override bool IsReadOnly => BoundPropertyDescriptor.PropertyDescriptor.IsReadOnly;
 
         public bool IsDirty
         {
@@ -132,10 +129,7 @@ namespace Gemini.Modules.Inspector.Inspectors
             NotifyOfPropertyChange(() => IsDirty);
         }
 
-        private void OnValueChanged(object sender, EventArgs e)
-        {
-            OnValueChanged();
-        }
+        private void OnValueChanged(object sender, EventArgs e) => OnValueChanged();
 
         private void OnPropertyChanged(object sender, PropertyChangedEventArgs e)
         {
@@ -199,13 +193,10 @@ namespace Gemini.Modules.Inspector.Inspectors
 
         protected object RawValue
         {
-            get { return BoundPropertyDescriptor.Value; }
-            set { BoundPropertyDescriptor.Value = value; }
+            get => BoundPropertyDescriptor.Value;
+            set => BoundPropertyDescriptor.Value = value;
         }
 
-        public virtual void Dispose()
-        {
-            CleanupPropertyChanged();
-        }
+        public virtual void Dispose() => CleanupPropertyChanged();
     }
 }

@@ -31,27 +31,21 @@ namespace Gemini.Framework
 			_execute = execute;
 			_canExecute = canExecute;
 		}
-		#endregion // Constructors
+        #endregion // Constructors
 
-		#region ICommand Members
+        #region ICommand Members
 
-		[DebuggerStepThrough]
-		public bool CanExecute(object parameter)
-		{
-			return _canExecute == null || _canExecute(parameter);
-		}
+        [DebuggerStepThrough]
+        public bool CanExecute(object parameter) => _canExecute == null || _canExecute(parameter);
 
-		public event EventHandler CanExecuteChanged
+        public event EventHandler CanExecuteChanged
 		{
 			add { CommandManager.RequerySuggested += value; }
 			remove { CommandManager.RequerySuggested -= value; }
 		}
 
-		public void Execute(object parameter)
-		{
-			_execute(parameter);
-		}
+        public void Execute(object parameter) => _execute(parameter);
 
-		#endregion // ICommand Members
-	}
+        #endregion // ICommand Members
+    }
 }

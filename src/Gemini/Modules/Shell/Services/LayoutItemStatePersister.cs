@@ -168,9 +168,7 @@ namespace Gemini.Modules.Shell.Services
 
                         if (contentType != null)
                         {
-                            var contentInstance = IoC.GetInstance(contentType, null) as ILayoutItem;
-
-                            if (contentInstance != null)
+                            if (IoC.GetInstance(contentType, null) is ILayoutItem contentInstance)
                             {
                                 layoutItems.Add(contentId, contentInstance);
 

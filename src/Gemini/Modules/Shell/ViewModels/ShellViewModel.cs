@@ -145,10 +145,7 @@ namespace Gemini.Modules.Shell.ViewModels
         }
 
         public void ShowTool<TTool>()
-            where TTool : ITool
-        {
-            ShowTool(IoC.Get<TTool>());
-        }
+            where TTool : ITool => ShowTool(IoC.Get<TTool>());
 
         public void ShowTool(ITool model)
         {
@@ -199,19 +196,9 @@ namespace Gemini.Modules.Shell.ViewModels
             }
         }
 
-        private void RaiseActiveDocumentChanging()
-        {
-            var handler = ActiveDocumentChanging;
-            if (handler != null)
-                handler(this, EventArgs.Empty);
-        }
+        private void RaiseActiveDocumentChanging() => ActiveDocumentChanging?.Invoke(this, EventArgs.Empty);
 
-        private void RaiseActiveDocumentChanged()
-        {
-            var handler = ActiveDocumentChanged;
-            if (handler != null)
-                handler(this, EventArgs.Empty);
-        }
+        private void RaiseActiveDocumentChanged() => ActiveDocumentChanged?.Invoke(this, EventArgs.Empty);
 
         protected override void OnActivationProcessed(IDocument item, bool success)
         {
@@ -261,9 +248,6 @@ namespace Gemini.Modules.Shell.ViewModels
             await base.OnDeactivateAsync(close, cancellationToken);
         }
 
-        public void Close()
-        {
-            Application.Current.MainWindow.Close();
-        }
+        public void Close() => Application.Current.MainWindow.Close();
     }
 }

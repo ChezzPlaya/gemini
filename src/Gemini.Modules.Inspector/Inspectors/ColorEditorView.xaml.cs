@@ -9,29 +9,14 @@ namespace Gemini.Modules.Inspector.Inspectors
     {
         private Color _originalColor;
 
-        public ColorEditorView()
-        {
-            InitializeComponent();
-        }
+        public ColorEditorView() => InitializeComponent();
 
-        private void OnScreenColorPickerPickingStarted(object sender, EventArgs e)
-        {
-            _originalColor = ((ColorEditorViewModel) DataContext).Value;
-        }
+        private void OnScreenColorPickerPickingStarted(object sender, EventArgs e) => _originalColor = ((ColorEditorViewModel)DataContext).Value;
 
-        private void OnScreenColorPickerPickingCancelled(object sender, EventArgs e)
-        {
-            ((ColorEditorViewModel) DataContext).Value = _originalColor;
-        }
+        private void OnScreenColorPickerPickingCancelled(object sender, EventArgs e) => ((ColorEditorViewModel)DataContext).Value = _originalColor;
 
-        private void OnScreenColorPickerColorHovered(object sender, ColorEventArgs e)
-        {
-            ((ColorEditorViewModel) DataContext).Value = e.Color;
-        }
+        private void OnScreenColorPickerColorHovered(object sender, ColorEventArgs e) => ((ColorEditorViewModel)DataContext).Value = e.Color;
 
-        private void OnScreenColorPickerColorPicked(object sender, ColorEventArgs e)
-        {
-            ((ColorEditorViewModel) DataContext).Value = e.Color;
-        }
+        private void OnScreenColorPickerColorPicked(object sender, ColorEventArgs e) => ((ColorEditorViewModel)DataContext).Value = e.Color;
     }
 }

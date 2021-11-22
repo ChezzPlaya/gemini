@@ -24,22 +24,19 @@ namespace Gemini.Modules.MainMenu.ViewModels
 		}
 
 	    public bool AutoHide
-	    {
-	        get { return _autoHide; }
-	        private set
-	        {
-	            if (_autoHide == value)
-	                return;
+        {
+            get => _autoHide;
+            private set
+            {
+                if (_autoHide == value)
+                    return;
 
-	            _autoHide = value;
+                _autoHide = value;
 
-	            NotifyOfPropertyChange(ExtensionMethods.GetPropertyName(() => AutoHide));
-	        }
-	    }
+                NotifyOfPropertyChange(ExtensionMethods.GetPropertyName(() => AutoHide));
+            }
+        }
 
-	    void IPartImportsSatisfiedNotification.OnImportsSatisfied()
-	    {
-	        _menuBuilder.BuildMenuBar(MenuDefinitions.MainMenuBar, this);
-	    }
-	}
+        void IPartImportsSatisfiedNotification.OnImportsSatisfied() => _menuBuilder.BuildMenuBar(MenuDefinitions.MainMenuBar, this);
+    }
 }

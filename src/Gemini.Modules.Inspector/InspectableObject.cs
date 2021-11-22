@@ -7,9 +7,6 @@ namespace Gemini.Modules.Inspector
     {
         public IEnumerable<IInspector> Inspectors { get; set; }
 
-        public InspectableObject(IEnumerable<IInspector> inspectors)
-        {
-            Inspectors = inspectors;
-        }
+        public InspectableObject(IEnumerable<IInspector> inspectors) => Inspectors = inspectors;
     }
 }

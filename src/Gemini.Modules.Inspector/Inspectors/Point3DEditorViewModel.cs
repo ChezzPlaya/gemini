@@ -6,7 +6,7 @@ namespace Gemini.Modules.Inspector.Inspectors
     {
         public double X
         {
-            get { return Value.X; }
+            get => Value.X;
             set
             {
                 Value = new Point3D(value, Value.Y, Value.Z);
@@ -16,7 +16,7 @@ namespace Gemini.Modules.Inspector.Inspectors
 
         public double Y
         {
-            get { return Value.Y; }
+            get => Value.Y;
             set
             {
                 Value = new Point3D(Value.X, value, Value.Z);
@@ -26,7 +26,7 @@ namespace Gemini.Modules.Inspector.Inspectors
 
         public double Z
         {
-            get { return Value.Z; }
+            get => Value.Z;
             set
             {
                 Value = new Point3D(Value.X, Value.Y, value);

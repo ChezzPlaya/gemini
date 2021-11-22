@@ -14,8 +14,8 @@ namespace Gemini.Framework.Behaviors
 
         public bool ShowIcon
         {
-            get { return (bool) GetValue(ShowIconProperty); }
-            set { SetValue(ShowIconProperty, value); }
+            get => (bool)GetValue(ShowIconProperty);
+            set => SetValue(ShowIconProperty, value);
         }
 
         public static readonly DependencyProperty ShowMinimizeBoxProperty = DependencyProperty.Register(
@@ -24,8 +24,8 @@ namespace Gemini.Framework.Behaviors
 
         public bool ShowMinimizeBox
         {
-            get { return (bool) GetValue(ShowMinimizeBoxProperty); }
-            set { SetValue(ShowMinimizeBoxProperty, value); }
+            get => (bool)GetValue(ShowMinimizeBoxProperty);
+            set => SetValue(ShowMinimizeBoxProperty, value);
         }
 
         public static readonly DependencyProperty ShowMaximizeBoxProperty = DependencyProperty.Register(
@@ -34,14 +34,11 @@ namespace Gemini.Framework.Behaviors
 
         public bool ShowMaximizeBox
         {
-            get { return (bool) GetValue(ShowMaximizeBoxProperty); }
-            set { SetValue(ShowMaximizeBoxProperty, value); }
+            get => (bool)GetValue(ShowMaximizeBoxProperty);
+            set => SetValue(ShowMaximizeBoxProperty, value);
         }
 
-        private static void OnWindowOptionChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
-        {
-            ((WindowOptionsBehavior) d).UpdateWindowStyle();
-        }
+        private static void OnWindowOptionChanged(DependencyObject d, DependencyPropertyChangedEventArgs e) => ((WindowOptionsBehavior)d).UpdateWindowStyle();
 
         private void UpdateWindowStyle()
         {
@@ -93,9 +90,6 @@ namespace Gemini.Framework.Behaviors
             base.OnDetaching();
         }
 
-        private void OnSourceInitialized(object sender, EventArgs e)
-        {
-            UpdateWindowStyle();
-        }
+        private void OnSourceInitialized(object sender, EventArgs e) => UpdateWindowStyle();
     }
 }

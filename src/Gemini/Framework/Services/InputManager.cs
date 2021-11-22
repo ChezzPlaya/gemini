@@ -20,21 +20,15 @@ namespace Gemini.Framework.Services
 			inputBindingTrigger.Actions.Add(new TestTriggerAction(handler));
 		}
 
-		public void SetShortcut(InputGesture gesture, object handler)
-		{
-			SetShortcut(Application.Current.MainWindow, gesture, handler);
-		}
+        public void SetShortcut(InputGesture gesture, object handler) => SetShortcut(Application.Current.MainWindow, gesture, handler);
 
-		private class TestTriggerAction : TriggerAction<FrameworkElement>
+        private class TestTriggerAction : TriggerAction<FrameworkElement>
 		{
 			private readonly object _handler;
 
-			public TestTriggerAction(object handler)
-			{
-				_handler = handler;
-			}
+            public TestTriggerAction(object handler) => _handler = handler;
 
-			protected override void Invoke(object parameter)
+            protected override void Invoke(object parameter)
 			{
                 var context = new ActionExecutionContext
                 {

@@ -12,10 +12,7 @@ namespace Gemini.Modules.ErrorList.Commands
         private readonly IShell _shell;
 
         [ImportingConstructor]
-        public ViewErrorListCommandHandler(IShell shell)
-        {
-            _shell = shell;
-        }
+        public ViewErrorListCommandHandler(IShell shell) => _shell = shell;
 
         public override Task Run(Command command)
         {

@@ -6,10 +6,7 @@ namespace Gemini.Modules.CodeEditor.Views
 {
     public partial class CodeEditorView : UserControl, ICodeEditorView
     {
-        public TextEditor TextEditor
-        {
-            get { return CodeEditor; }
-        }
+        public TextEditor TextEditor => CodeEditor;
 
         public CodeEditorView()
         {
@@ -17,9 +14,6 @@ namespace Gemini.Modules.CodeEditor.Views
             Loaded += (sender, e) => MoveFocus(new TraversalRequest(FocusNavigationDirection.Next));
         }
 
-        public void ApplySettings()
-        {
-            CodeEditor?.ApplySettings();
-        }
+        public void ApplySettings() => CodeEditor?.ApplySettings();
     }
 }

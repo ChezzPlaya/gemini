@@ -16,15 +16,9 @@ namespace Gemini.Demo.Modules.FilterDesigner.Views
     {
         private Point _originalContentMouseDownPoint;
 
-        private GraphViewModel ViewModel
-        {
-            get { return (GraphViewModel) DataContext; }
-        }
+        private GraphViewModel ViewModel => (GraphViewModel)DataContext;
 
-        public GraphView()
-        {
-            InitializeComponent();
-        }
+        public GraphView() => InitializeComponent();
 
         protected override void OnPreviewMouseDown(MouseButtonEventArgs e)
         {
@@ -77,10 +71,7 @@ namespace Gemini.Demo.Modules.FilterDesigner.Views
             e.Handled = true;
         }
 
-        private void OnGraphControlSelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            ViewModel.OnSelectionChanged();
-        }
+        private void OnGraphControlSelectionChanged(object sender, SelectionChangedEventArgs e) => ViewModel.OnSelectionChanged();
 
         private void OnGraphControlConnectionDragStarted(object sender, ConnectionDragStartedEventArgs e)
         {

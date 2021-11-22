@@ -7,14 +7,8 @@ namespace Gemini.Modules.ToolBars.Views
     /// </summary>
     public partial class ToolBarsView : UserControl, IToolBarsView
     {
-        ToolBarTray IToolBarsView.ToolBarTray
-        {
-            get { return ToolBarTray; }
-        }
+        ToolBarTray IToolBarsView.ToolBarTray => ToolBarTray;
 
-        public ToolBarsView()
-        {
-            InitializeComponent();
-        }
+        public ToolBarsView() => InitializeComponent();
     }
 }

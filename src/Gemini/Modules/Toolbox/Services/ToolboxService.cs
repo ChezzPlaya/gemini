@@ -12,13 +12,11 @@ namespace Gemini.Modules.Toolbox.Services
     {
         private readonly Dictionary<Type, IEnumerable<ToolboxItem>> _toolboxItems;
 
-        public ToolboxService()
-        {
-            _toolboxItems = AssemblySource.Instance
+        public ToolboxService() => _toolboxItems = AssemblySource.Instance
                 .SelectMany(x => x.GetTypes().Where(y => y.GetCustomAttributes(typeof(ToolboxItemAttribute), false).Any()))
                 .Select(x =>
                 {
-                    var attribute = (ToolboxItemAttribute) x.GetCustomAttributes(typeof(ToolboxItemAttribute), false).First();
+                    var attribute = (ToolboxItemAttribute)x.GetCustomAttributes(typeof(ToolboxItemAttribute), false).First();
                     return new ToolboxItem
                     {
                         DocumentType = attribute.DocumentType,
@@ -30,7 +28,6 @@ namespace Gemini.Modules.Toolbox.Services
                 })
                 .GroupBy(x => x.DocumentType)
                 .ToDictionary(x => x.Key, x => x.AsEnumerable());
-        }
 
         public IEnumerable<ToolboxItem> GetToolboxItems(Type documentType)
         {

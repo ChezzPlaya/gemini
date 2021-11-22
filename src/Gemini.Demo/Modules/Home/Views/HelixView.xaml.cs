@@ -7,14 +7,8 @@ namespace Gemini.Demo.Modules.Home.Views
     /// </summary>
     public partial class HelixView : UserControl, IHelixView
     {
-        public ICSharpCode.AvalonEdit.TextEditor TextEditor
-        {
-            get { return CodeEditor; }
-        }
+        public ICSharpCode.AvalonEdit.TextEditor TextEditor => CodeEditor;
 
-        public HelixView()
-        {
-            InitializeComponent();
-        }
+        public HelixView() => InitializeComponent();
     }
 }

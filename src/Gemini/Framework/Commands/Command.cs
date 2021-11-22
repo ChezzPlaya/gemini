@@ -13,45 +13,42 @@ namespace Gemini.Framework.Commands
         private string _toolTip;
         private Uri _iconSource;
 
-        public CommandDefinitionBase CommandDefinition
-        {
-            get { return _commandDefinition; }       
-        }
+        public CommandDefinitionBase CommandDefinition => _commandDefinition;
 
         public bool Visible
         {
-            get { return _visible; }
-            set { Set(ref _visible, value); }
+            get => _visible;
+            set => Set(ref _visible, value);
         }
 
         public bool Enabled
         {
-            get { return _enabled; }
-            set { Set(ref _enabled, value); }
+            get => _enabled;
+            set => Set(ref _enabled, value);
         }
 
         public bool Checked
         {
-            get { return _checked; }
-            set { Set(ref _checked, value); }
+            get => _checked;
+            set => Set(ref _checked, value);
         }
 
         public string Text
         {
-            get { return _text; }
-            set { Set(ref _text, value); }
+            get => _text;
+            set => Set(ref _text, value);
         }
 
         public string ToolTip
         {
-            get { return _toolTip; }
-            set { Set(ref _toolTip, value); }
+            get => _toolTip;
+            set => Set(ref _toolTip, value);
         }
 
         public Uri IconSource
         {
-            get { return _iconSource; }
-            set { Set(ref _iconSource, value); }
+            get => _iconSource;
+            set => Set(ref _iconSource, value);
         }
 
         public object Tag { get; set; }

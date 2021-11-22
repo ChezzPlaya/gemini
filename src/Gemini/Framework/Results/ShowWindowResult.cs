@@ -16,27 +16,21 @@ namespace Gemini.Framework.Results
         {
         }
 
-        public ShowWindowResult(TWindow window)
-        {
-            _windowLocator = () => window;
-        }
+        public ShowWindowResult(TWindow window) => _windowLocator = () => window;
 
         public override void Execute(CoroutineExecutionContext context)
         {
             var window = _windowLocator();
 
-            if (_setData != null)
-                _setData(window);
+            _setData?.Invoke(window);
 
-            if (_onConfigure != null)
-                _onConfigure(window);
+            _onConfigure?.Invoke(window);
 
             window.Deactivated += (s, e) =>
             {
                 if (e.WasClosed)
                 {
-                    if (_onShutDown != null)
-                        _onShutDown(window);
+                    _onShutDown?.Invoke(window);
 
                     OnCompleted(null, false);
                 }

@@ -19,9 +19,6 @@ namespace Gemini.Modules.Inspector.Inspectors
     /// </summary>
     public partial class TextBoxEditorView : UserControl
     {
-        public TextBoxEditorView()
-        {
-            InitializeComponent();
-        }
+        public TextBoxEditorView() => InitializeComponent();
     }
 }

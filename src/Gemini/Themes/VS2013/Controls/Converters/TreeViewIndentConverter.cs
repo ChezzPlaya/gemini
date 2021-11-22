@@ -29,16 +29,30 @@ namespace Gemini.Themes.VS2013.Controls.Converters
 
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
+
+/* Unmerged change from project 'Gemini (netcoreapp3.1)'
+Before:
             var item = value as TreeViewItem;
             if (item == null)
+After:
+            var (!(value is TreeViewItem;
+            if (item))
+*/
+
+/* Unmerged change from project 'Gemini (net461)'
+Before:
+            var item = value as TreeViewItem;
+            if (item == null)
+After:
+            var (!(value is TreeViewItem;
+            if (item))
+*/
+            if (value is not TreeViewItem item)
                 return new Thickness(0);
 
             return new Thickness(Indent * GetItemDepth(item), 0, 0, 0);
         }
 
-        public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
-        {
-            throw new NotImplementedException();
-        }
+        public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture) => throw new NotImplementedException();
     }
 }

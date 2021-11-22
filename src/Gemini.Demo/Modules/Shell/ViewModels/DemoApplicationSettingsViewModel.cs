@@ -11,31 +11,23 @@ namespace Gemini.Demo.Modules.Shell.ViewModels
     {
         private bool _confirmExit;
 
-        public DemoApplicationSettingsViewModel()
-        {
-            ConfirmExit = Settings.Default.ConfirmExit;
-        }
+        public DemoApplicationSettingsViewModel() => ConfirmExit = Settings.Default.ConfirmExit;
 
         public bool ConfirmExit
         {
-            get { return _confirmExit; }
+            get => _confirmExit;
             set
             {
-                if (value.Equals(_confirmExit)) return;
+                if (value.Equals(_confirmExit))
+                    return;
                 _confirmExit = value;
                 NotifyOfPropertyChange(() => ConfirmExit);
             }
         }
 
-        public string SettingsPageName
-        {
-            get { return Resources.SettingsPageGeneral; }
-        }
+        public string SettingsPageName => Resources.SettingsPageGeneral;
 
-        public string SettingsPagePath
-        {
-            get { return Resources.SettingsPathEnvironment; }
-        }
+        public string SettingsPagePath => Resources.SettingsPathEnvironment;
 
         public void ApplyChanges()
         {

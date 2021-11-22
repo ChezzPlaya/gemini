@@ -10,7 +10,7 @@ namespace Gemini.Demo.Modules.FilterDesigner.ViewModels.Elements
         private Color _color;
         public Color Color
         {
-            get { return _color; }
+            get => _color;
             set
             {
                 _color = value;
@@ -25,9 +25,6 @@ namespace Gemini.Demo.Modules.FilterDesigner.ViewModels.Elements
             UpdatePreviewImage();
         }
 
-        protected override void Draw(DrawingContext drawingContext, Rect bounds)
-        {
-            drawingContext.DrawRectangle(new SolidColorBrush(Color), null, bounds);
-        }
+        protected override void Draw(DrawingContext drawingContext, Rect bounds) => drawingContext.DrawRectangle(new SolidColorBrush(Color), null, bounds);
     }
 }

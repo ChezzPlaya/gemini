@@ -8,15 +8,12 @@ namespace Gemini.Demo.Modules.FilterDesigner.ViewModels
     {
         public event EventHandler SourceChanged;
 
-        public override ConnectorDirection ConnectorDirection
-        {
-            get { return ConnectorDirection.Input; }
-        }
+        public override ConnectorDirection ConnectorDirection => ConnectorDirection.Input;
 
         private ConnectionViewModel _connection;
         public ConnectionViewModel Connection
         {
-            get { return _connection; }
+            get => _connection;
             set
             {
                 if (_connection != null)
@@ -29,10 +26,7 @@ namespace Gemini.Demo.Modules.FilterDesigner.ViewModels
             }
         }
 
-        private void OnSourceElementOutputChanged(object sender, EventArgs e)
-        {
-            RaiseSourceChanged();
-        }
+        private void OnSourceElementOutputChanged(object sender, EventArgs e) => RaiseSourceChanged();
 
         public BitmapSource Value
         {
@@ -51,11 +45,6 @@ namespace Gemini.Demo.Modules.FilterDesigner.ViewModels
             
         }
 
-        private void RaiseSourceChanged()
-        {
-            var handler = SourceChanged;
-            if (handler!= null)
-                handler(this, EventArgs.Empty);
-        }
+        private void RaiseSourceChanged() => SourceChanged?.Invoke(this, EventArgs.Empty);
     }
 }

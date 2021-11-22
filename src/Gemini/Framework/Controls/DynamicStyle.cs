@@ -11,29 +11,17 @@ namespace Gemini.Framework.Controls
             "BaseStyle", typeof(Style), typeof(DynamicStyle),
             new PropertyMetadata(OnStylesChanged));
 
-        public static Style GetBaseStyle(DependencyObject obj)
-        {
-            return (Style) obj.GetValue(BaseStyleProperty);
-        }
+        public static Style GetBaseStyle(DependencyObject obj) => (Style)obj.GetValue(BaseStyleProperty);
 
-        public static void SetBaseStyle(DependencyObject obj, Style value)
-        {
-            obj.SetValue(BaseStyleProperty, value);
-        }
+        public static void SetBaseStyle(DependencyObject obj, Style value) => obj.SetValue(BaseStyleProperty, value);
 
         public static readonly DependencyProperty DerivedStyleProperty = DependencyProperty.RegisterAttached(
             "DerivedStyle", typeof(Style), typeof(DynamicStyle),
             new PropertyMetadata(OnStylesChanged));
 
-        public static Style GetDerivedStyle(DependencyObject obj)
-        {
-            return (Style) obj.GetValue(DerivedStyleProperty);
-        }
+        public static Style GetDerivedStyle(DependencyObject obj) => (Style)obj.GetValue(DerivedStyleProperty);
 
-        public static void SetDerivedStyle(DependencyObject obj, Style value)
-        {
-            obj.SetValue(DerivedStyleProperty, value);
-        }
+        public static void SetDerivedStyle(DependencyObject obj, Style value) => obj.SetValue(DerivedStyleProperty, value);
 
         private static void OnStylesChanged(DependencyObject target, DependencyPropertyChangedEventArgs e)
         {
@@ -46,29 +34,17 @@ namespace Gemini.Framework.Controls
             "ItemContainerBaseStyle", typeof(Style), typeof(DynamicStyle),
             new PropertyMetadata(OnItemContainerStylesChanged));
 
-        public static Style GetItemContainerBaseStyle(DependencyObject obj)
-        {
-            return (Style) obj.GetValue(ItemContainerBaseStyleProperty);
-        }
+        public static Style GetItemContainerBaseStyle(DependencyObject obj) => (Style)obj.GetValue(ItemContainerBaseStyleProperty);
 
-        public static void SetItemContainerBaseStyle(DependencyObject obj, Style value)
-        {
-            obj.SetValue(ItemContainerBaseStyleProperty, value);
-        }
+        public static void SetItemContainerBaseStyle(DependencyObject obj, Style value) => obj.SetValue(ItemContainerBaseStyleProperty, value);
 
         public static readonly DependencyProperty ItemContainerDerivedStyleProperty = DependencyProperty.RegisterAttached(
             "ItemContainerDerivedStyle", typeof(Style), typeof(DynamicStyle),
             new PropertyMetadata(OnItemContainerStylesChanged));
 
-        public static Style GetItemContainerDerivedStyle(DependencyObject obj)
-        {
-            return (Style) obj.GetValue(ItemContainerDerivedStyleProperty);
-        }
+        public static Style GetItemContainerDerivedStyle(DependencyObject obj) => (Style)obj.GetValue(ItemContainerDerivedStyleProperty);
 
-        public static void SetItemContainerDerivedStyle(DependencyObject obj, Style value)
-        {
-            obj.SetValue(ItemContainerDerivedStyleProperty, value);
-        }
+        public static void SetItemContainerDerivedStyle(DependencyObject obj, Style value) => obj.SetValue(ItemContainerDerivedStyleProperty, value);
 
         private static void OnItemContainerStylesChanged(DependencyObject target, DependencyPropertyChangedEventArgs e)
         {

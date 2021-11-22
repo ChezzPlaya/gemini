@@ -12,12 +12,12 @@ namespace Gemini.Framework.Services
 			typeof(InputBindingTrigger), new UIPropertyMetadata(null));
 
 		public InputBinding InputBinding
-		{
-			get { return (InputBinding)GetValue(InputBindingProperty); }
-			set { SetValue(InputBindingProperty, value); }
-		}
+        {
+            get => (InputBinding)GetValue(InputBindingProperty);
+            set => SetValue(InputBindingProperty, value);
+        }
 
-		protected override void OnAttached()
+        protected override void OnAttached()
 		{
 			if (InputBinding != null)
 			{
@@ -27,19 +27,14 @@ namespace Gemini.Framework.Services
 			base.OnAttached();
 		}
 
-		#region ICommand Members
-		public bool CanExecute(object parameter)
-		{
-			// action is anyway blocked by Caliburn at the invoke level
-			return true;
-		}
-		public event EventHandler CanExecuteChanged = delegate { };
+        #region ICommand Members
+        public bool CanExecute(object parameter) =>
+            // action is anyway blocked by Caliburn at the invoke level
+            true;
+        public event EventHandler CanExecuteChanged = delegate { };
 
-		public void Execute(object parameter)
-		{
-			InvokeActions(parameter);
-		}
+        public void Execute(object parameter) => InvokeActions(parameter);
 
-		#endregion
-	}
+        #endregion
+    }
 }

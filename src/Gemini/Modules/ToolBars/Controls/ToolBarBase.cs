@@ -60,9 +60,6 @@ namespace Gemini.Modules.ToolBars.Controls
             base.ClearContainerForItemOverride(element, item);
         }
 
-        private void UpdateSeparatorsVisibility(object sender, EventArgs e)
-        {
-            ItemsControlUtility.UpdateSeparatorsVisibility(this);
-        }
+        private void UpdateSeparatorsVisibility(object sender, EventArgs e) => ItemsControlUtility.UpdateSeparatorsVisibility(this);
     }
 }

@@ -11,15 +11,9 @@ namespace Gemini.Modules.MainMenu.Behaviors
         public static readonly DependencyProperty UpdateCommandUiItemsProperty = DependencyProperty.RegisterAttached(
             "UpdateCommandUiItems", typeof(bool), typeof(MenuBehavior), new PropertyMetadata(false, OnUpdateCommandUiItemsChanged));
 
-        public static bool GetUpdateCommandUiItems(DependencyObject control)
-        {
-            return (bool) control.GetValue(UpdateCommandUiItemsProperty);
-        }
+        public static bool GetUpdateCommandUiItems(DependencyObject control) => (bool)control.GetValue(UpdateCommandUiItemsProperty);
 
-        public static void SetUpdateCommandUiItems(DependencyObject control, bool value)
-        {
-            control.SetValue(UpdateCommandUiItemsProperty, value);
-        }
+        public static void SetUpdateCommandUiItems(DependencyObject control, bool value) => control.SetValue(UpdateCommandUiItemsProperty, value);
 
         private static void OnUpdateCommandUiItemsChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {

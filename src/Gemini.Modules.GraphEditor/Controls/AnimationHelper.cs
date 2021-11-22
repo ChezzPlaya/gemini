@@ -19,10 +19,7 @@ namespace Gemini.Modules.GraphEditor.Controls
         /// <summary>
         /// Starts an animation to a particular value on the specified dependency property.
         /// </summary>
-        public static void StartAnimation(UIElement animatableElement, DependencyProperty dependencyProperty, double toValue, double animationDurationSeconds)
-        {
-            StartAnimation(animatableElement, dependencyProperty, toValue, animationDurationSeconds, null);
-        }
+        public static void StartAnimation(UIElement animatableElement, DependencyProperty dependencyProperty, double toValue, double animationDurationSeconds) => StartAnimation(animatableElement, dependencyProperty, toValue, animationDurationSeconds, null);
 
         /// <summary>
         /// Starts an animation to a particular value on the specified dependency property.
@@ -46,10 +43,7 @@ namespace Gemini.Modules.GraphEditor.Controls
                 animatableElement.SetValue(dependencyProperty, animatableElement.GetValue(dependencyProperty));
                 CancelAnimation(animatableElement, dependencyProperty);
 
-                if (completedEvent != null)
-                {
-                    completedEvent(sender, e);
-                }
+                completedEvent?.Invoke(sender, e);
             };
 
             animation.Freeze();
@@ -60,9 +54,6 @@ namespace Gemini.Modules.GraphEditor.Controls
         /// <summary>
         /// Cancel any animations that are running on the specified dependency property.
         /// </summary>
-        public static void CancelAnimation(UIElement animatableElement, DependencyProperty dependencyProperty)
-        {
-            animatableElement.BeginAnimation(dependencyProperty, null);
-        }
+        public static void CancelAnimation(UIElement animatableElement, DependencyProperty dependencyProperty) => animatableElement.BeginAnimation(dependencyProperty, null);
     }
 }

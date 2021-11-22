@@ -27,10 +27,7 @@ namespace Gemini.Modules.CodeEditor
             }
         }
 
-        public ILanguageDefinition GetDefinitionByExtension(string extension)
-        {
-            return LanguageDefinitions.FirstOrDefault(l => l.FileExtensions.Contains(extension));
-        }
+        public ILanguageDefinition GetDefinitionByExtension(string extension) => LanguageDefinitions.FirstOrDefault(l => l.FileExtensions.Contains(extension));
 
         private List<ILanguageDefinition> Initialize()
         {

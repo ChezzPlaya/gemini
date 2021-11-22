@@ -7,9 +7,6 @@ namespace Gemini.Modules.MainMenu.Views
     /// </summary>
     public partial class MainMenuSettingsView : UserControl
     {
-        public MainMenuSettingsView()
-        {
-            InitializeComponent();
-        }
+        public MainMenuSettingsView() => InitializeComponent();
     }
 }

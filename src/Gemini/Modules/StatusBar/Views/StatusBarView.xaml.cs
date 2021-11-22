@@ -12,10 +12,7 @@ namespace Gemini.Modules.StatusBar.Views
     {
         private Grid _statusBarGrid;
 
-        public StatusBarView()
-        {
-            InitializeComponent();
-        }
+        public StatusBarView() => InitializeComponent();
 
         private void OnStatusBarGridLoaded(object sender, RoutedEventArgs e)
         {

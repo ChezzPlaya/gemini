@@ -13,15 +13,9 @@ namespace Gemini.Modules.ErrorList.ViewModels
     {
         private readonly BindableCollection<ErrorListItem> _items;
 
-        public override PaneLocation PreferredLocation
-        {
-            get { return PaneLocation.Bottom; }
-        }
+        public override PaneLocation PreferredLocation => PaneLocation.Bottom;
 
-        public IObservableCollection<ErrorListItem> Items
-        {
-            get { return _items; }
-        }
+        public IObservableCollection<ErrorListItem> Items => _items;
 
         public IEnumerable<ErrorListItem> FilteredItems
         {
@@ -41,7 +35,7 @@ namespace Gemini.Modules.ErrorList.ViewModels
         private bool _showErrors = true;
         public bool ShowErrors
         {
-            get { return _showErrors; }
+            get => _showErrors;
             set
             {
                 _showErrors = value;
@@ -53,7 +47,7 @@ namespace Gemini.Modules.ErrorList.ViewModels
         private bool _showWarnings = true;
         public bool ShowWarnings
         {
-            get { return _showWarnings; }
+            get => _showWarnings;
             set
             {
                 _showWarnings = value;
@@ -65,7 +59,7 @@ namespace Gemini.Modules.ErrorList.ViewModels
         private bool _showMessages = true;
         public bool ShowMessages
         {
-            get { return _showMessages; }
+            get => _showMessages;
             set
             {
                 _showMessages = value;
@@ -90,14 +84,11 @@ namespace Gemini.Modules.ErrorList.ViewModels
             };
         }
 
-        public void AddItem(ErrorListItemType itemType, string description, 
+        public void AddItem(ErrorListItemType itemType, string description,
             string path = null, int? line = null, int? column = null,
-            System.Action onClick = null)
-        {
-            Items.Add(new ErrorListItem(itemType, Items.Count + 1, description, path, line, column)
+            System.Action onClick = null) => Items.Add(new ErrorListItem(itemType, Items.Count + 1, description, path, line, column)
             {
                 OnClick = onClick
             });
-        }
     }
 }

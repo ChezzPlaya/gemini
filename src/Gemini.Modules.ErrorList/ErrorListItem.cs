@@ -7,7 +7,7 @@ namespace Gemini.Modules.ErrorList
         private ErrorListItemType _itemType;
         public ErrorListItemType ItemType
         {
-            get { return _itemType; }
+            get => _itemType;
             set
             {
                 _itemType = value;
@@ -18,7 +18,7 @@ namespace Gemini.Modules.ErrorList
         private int _number;
         public int Number
         {
-            get { return _number; }
+            get => _number;
             set
             {
                 _number = value;
@@ -29,7 +29,7 @@ namespace Gemini.Modules.ErrorList
         private string _description;
         public string Description
         {
-            get { return _description; }
+            get => _description;
             set
             {
                 _description = value;
@@ -40,7 +40,7 @@ namespace Gemini.Modules.ErrorList
         private string _path;
         public string Path
         {
-            get { return _path; }
+            get => _path;
             set
             {
                 _path = value;
@@ -49,15 +49,12 @@ namespace Gemini.Modules.ErrorList
             }
         }
 
-        public string File
-        {
-            get { return System.IO.Path.GetFileName(Path); }
-        }
+        public string File => System.IO.Path.GetFileName(Path);
 
         private int? _line;
         public int? Line
         {
-            get { return _line; }
+            get => _line;
             set
             {
                 _line = value;
@@ -68,7 +65,7 @@ namespace Gemini.Modules.ErrorList
         private int? _column;
         public int? Column
         {
-            get { return _column; }
+            get => _column;
             set
             {
                 _column = value;

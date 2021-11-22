@@ -12,22 +12,19 @@ namespace Gemini.Modules.MainMenu.Controls
 
         public bool AutoHide
         {
-            get { return (bool)GetValue(AutoHideProperty); }
-            set { SetValue(AutoHideProperty, value); }
+            get => (bool)GetValue(AutoHideProperty);
+            set => SetValue(AutoHideProperty, value);
         }
 
-		protected override bool IsItemItsOwnContainerOverride(object item)
+        protected override bool IsItemItsOwnContainerOverride(object item)
 		{
 			_currentItem = item;
 			return base.IsItemItsOwnContainerOverride(item);
 		}
 
-		protected override DependencyObject GetContainerForItemOverride()
-		{
-			return MenuItemEx.GetContainer(this, _currentItem);
-		}
+        protected override DependencyObject GetContainerForItemOverride() => MenuItemEx.GetContainer(this, _currentItem);
 
-	    protected override void OnGotKeyboardFocus(KeyboardFocusChangedEventArgs e)
+        protected override void OnGotKeyboardFocus(KeyboardFocusChangedEventArgs e)
 	    {
 	        base.OnGotKeyboardFocus(e);
 

@@ -54,9 +54,6 @@ namespace Gemini.Modules.Inspector.Inspectors
             _newValue = _boundPropertyDescriptor.Value;
         }
 
-        public void Undo()
-        {
-            _boundPropertyDescriptor.Value = _originalValue;
-        }
+        public void Undo() => _boundPropertyDescriptor.Value = _originalValue;
     }
 }

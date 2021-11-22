@@ -19,25 +19,16 @@ namespace Gemini.Modules.Toolbox.ViewModels
 
         private RelayCommand _searchCommand;
 
-        public ICommand SearchCommand
-        {
-            get { return _searchCommand == null ? _searchCommand = new RelayCommand(a => Search(a as string)) : _searchCommand; }
-        }
+        public ICommand SearchCommand => _searchCommand == null ? _searchCommand = new RelayCommand(a => Search(a as string)) : _searchCommand;
 
         private readonly IToolboxService _toolboxService;
 
-        public override PaneLocation PreferredLocation
-        {
-            get { return PaneLocation.Left; }
-        }
+        public override PaneLocation PreferredLocation => PaneLocation.Left;
 
         private BindableCollection<ToolboxItemViewModel> _filteredItems;
 
         private readonly BindableCollection<ToolboxItemViewModel> _items;
-        public IObservableCollection<ToolboxItemViewModel> Items
-        {
-            get { return _filteredItems.Count == 0 ? _items : _filteredItems; }
-        }
+        public IObservableCollection<ToolboxItemViewModel> Items => _filteredItems.Count == 0 ? _items : _filteredItems;
 
         [ImportingConstructor]
         public ToolboxViewModel(IShell shell, IToolboxService toolboxService)

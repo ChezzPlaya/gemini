@@ -10,7 +10,7 @@ namespace Gemini.Demo.Modules.FilterDesigner.ViewModels.Elements
         private BitmapSource _bitmap;
         public BitmapSource Bitmap
         {
-            get { return _bitmap; }
+            get => _bitmap;
             set
             {
                 _bitmap = value;
@@ -19,14 +19,8 @@ namespace Gemini.Demo.Modules.FilterDesigner.ViewModels.Elements
             }
         }
 
-        public override BitmapSource PreviewImage
-        {
-            get { return Bitmap; }
-        }
+        public override BitmapSource PreviewImage => Bitmap;
 
-        public ImageSource()
-        {
-            SetOutputConnector("Output", Colors.DarkSeaGreen, () => Bitmap);
-        }
+        public ImageSource() => SetOutputConnector("Output", Colors.DarkSeaGreen, () => Bitmap);
     }
 }

@@ -4,9 +4,6 @@ namespace Gemini.Demo.Modules.SampleBrowser.Views
 {
     public partial class SampleBrowserView : UserControl
     {
-        public SampleBrowserView()
-        {
-            InitializeComponent();
-        }
+        public SampleBrowserView() => InitializeComponent();
     }
 }

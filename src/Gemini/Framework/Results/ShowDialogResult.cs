@@ -13,10 +13,7 @@ namespace Gemini.Framework.Results
         {
         }
 
-        public ShowDialogResult(TWindow window)
-        {
-            _windowLocator = () => window;
-        }
+        public ShowDialogResult(TWindow window) => _windowLocator = () => window;
 
         [Import]
         public IWindowManager WindowManager { get; set; }

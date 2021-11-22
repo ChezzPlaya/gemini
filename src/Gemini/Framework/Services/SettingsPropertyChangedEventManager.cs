@@ -12,10 +12,7 @@ namespace Gemini.Framework.Services
         private readonly TApplicationSettings _applicationSettings;
         private readonly List<IWeakEventListener> _eventListeners = new List<IWeakEventListener>();
 
-        public SettingsPropertyChangedEventManager(TApplicationSettings applicationSettings)
-        {
-            _applicationSettings = applicationSettings;
-        }
+        public SettingsPropertyChangedEventManager(TApplicationSettings applicationSettings) => _applicationSettings = applicationSettings;
 
         public void AddListener<TSettingsProperty>(
             Expression<Func<TApplicationSettings, TSettingsProperty>> property,

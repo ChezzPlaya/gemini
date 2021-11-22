@@ -6,17 +6,11 @@ namespace Gemini.Modules.GraphEditor.Controls
     {
         private readonly object _connection;
 
-        public object Connection
-        {
-            get { return _connection; }
-        }
+        public object Connection => _connection;
 
-        internal ConnectionDragCompletedEventArgs(RoutedEvent routedEvent, object source, 
+        internal ConnectionDragCompletedEventArgs(RoutedEvent routedEvent, object source,
             ElementItem elementItem, object connection, ConnectorItem sourceConnectorItem)
-            : base(routedEvent, source, elementItem, sourceConnectorItem)
-        {
-            _connection = connection;
-        }
+            : base(routedEvent, source, elementItem, sourceConnectorItem) => _connection = connection;
     }
 
     public delegate void ConnectionDragCompletedEventHandler(object sender, ConnectionDragCompletedEventArgs e);

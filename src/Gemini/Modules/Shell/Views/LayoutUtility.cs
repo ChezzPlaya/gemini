@@ -29,13 +29,7 @@ namespace Gemini.Modules.Shell.Views
                     {
                         e.Content = item;
 
-                        var tool = item as ITool;
-                        var anchorable = e.Model as LayoutAnchorable;
-
-                        var document = item as IDocument;
-                        var layoutDocument = e.Model as LayoutDocument;
-
-                        if (tool != null && anchorable != null)
+                        if (item is ITool tool && e.Model is LayoutAnchorable anchorable)
                         {
                             addToolCallback(tool);
                             tool.IsVisible = anchorable.IsVisible;
@@ -48,7 +42,7 @@ namespace Gemini.Modules.Shell.Views
                             return;
                         }
 
-                        if (document != null && layoutDocument != null)
+                        if (item is IDocument document && e.Model is LayoutDocument layoutDocument)
                         {
                             addDocumentCallback(document);
 

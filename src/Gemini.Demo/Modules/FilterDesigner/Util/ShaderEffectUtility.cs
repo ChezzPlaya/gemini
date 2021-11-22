@@ -5,12 +5,9 @@ namespace Gemini.Demo.Modules.FilterDesigner.Util
 {
     internal static class ShaderEffectUtility
     {
-        public static PixelShader GetPixelShader(string name)
+        public static PixelShader GetPixelShader(string name) => new PixelShader
         {
-            return new PixelShader
-            {
-                UriSource = new Uri(AppDomain.CurrentDomain.BaseDirectory + "Modules/FilterDesigner/ShaderEffects/" + name + ".ps", UriKind.Absolute)
-            };
-        }
+            UriSource = new Uri(AppDomain.CurrentDomain.BaseDirectory + "Modules/FilterDesigner/ShaderEffects/" + name + ".ps", UriKind.Absolute)
+        };
     }
 }

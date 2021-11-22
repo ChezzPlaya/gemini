@@ -43,8 +43,8 @@ namespace Gemini.Modules.Inspector.Controls
         /// </summary>
         public GridResizeBehavior ResizeBehavior
         {
-            get { return (GridResizeBehavior) GetValue(ResizeBehaviorProperty); }
-            set { SetValue(ResizeBehaviorProperty, value); }
+            get => (GridResizeBehavior)GetValue(ResizeBehaviorProperty);
+            set => SetValue(ResizeBehaviorProperty, value);
         }
         #endregion
 
@@ -65,8 +65,8 @@ namespace Gemini.Modules.Inspector.Controls
         /// </summary>
         public GridResizeDirection ResizeDirection
         {
-            get { return (GridResizeDirection) GetValue(ResizeDirectionProperty); }
-            set { SetValue(ResizeDirectionProperty, value); }
+            get => (GridResizeDirection)GetValue(ResizeDirectionProperty);
+            set => SetValue(ResizeDirectionProperty, value);
         }
 
         /// <summary>
@@ -96,10 +96,7 @@ namespace Gemini.Modules.Inspector.Controls
         /// <param name="oldResizeDirection">The old ResizeDirection value</param>
         /// <param name="newResizeDirection">The new ResizeDirection value</param>
         protected virtual void OnResizeDirectionChanged(
-            GridResizeDirection oldResizeDirection, GridResizeDirection newResizeDirection)
-        {
-            this.DetermineResizeCursor();
-        }
+            GridResizeDirection oldResizeDirection, GridResizeDirection newResizeDirection) => this.DetermineResizeCursor();
         #endregion
 
         #region KeyboardIncrement
@@ -120,8 +117,8 @@ namespace Gemini.Modules.Inspector.Controls
         /// </summary>
         public double KeyboardIncrement
         {
-            get { return (double) GetValue(KeyboardIncrementProperty); }
-            set { SetValue(KeyboardIncrementProperty, value); }
+            get => (double)GetValue(KeyboardIncrementProperty);
+            set => SetValue(KeyboardIncrementProperty, value);
         }
         #endregion
 
@@ -301,19 +298,14 @@ namespace Gemini.Modules.Inspector.Controls
         //        new UIPropertyMetadata(true));
         //}
 
-        public SimpleGridSplitter()
-        {
+        public SimpleGridSplitter() =>
             //FocusManager.SetIsFocusScope(this, true);
             this.DetermineResizeCursor();
-        }
         #endregion
 
         #region Mouse event handlers
 
-        protected override void OnDragEnter(DragEventArgs e)
-        {
-            base.OnDragEnter(e);
-        }
+        protected override void OnDragEnter(DragEventArgs e) => base.OnDragEnter(e);
 
         protected override void OnMouseEnter(MouseEventArgs e)
         {
@@ -321,24 +313,15 @@ namespace Gemini.Modules.Inspector.Controls
             base.OnMouseEnter(e);
         }
 
-        private static void OnDragStarted(object sender, DragStartedEventArgs e)
-        {
-            ((SimpleGridSplitter) sender).OnDragStarted(e);
-        }
+        private static void OnDragStarted(object sender, DragStartedEventArgs e) => ((SimpleGridSplitter)sender).OnDragStarted(e);
 
-        private void OnDragStarted(DragStartedEventArgs e)
-        {
+        private void OnDragStarted(DragStartedEventArgs e) =>
             //this.CaptureMouse();
             //var grid = GetGrid();
             //this.lastPosition = e.GetPosition(grid);
-            this.dragging = true;
-            //this.Focus();
-        }
+            this.dragging = true;//this.Focus();
 
-        private static void OnDragDelta(object sender, DragDeltaEventArgs e)
-        {
-            ((SimpleGridSplitter) sender).OnDragDelta(e);
-        }
+        private static void OnDragDelta(object sender, DragDeltaEventArgs e) => ((SimpleGridSplitter)sender).OnDragDelta(e);
 
         private void OnDragDelta(DragDeltaEventArgs e)
         {
@@ -364,15 +347,9 @@ namespace Gemini.Modules.Inspector.Controls
             }
         }
 
-        private static void OnDragCompleted(object sender, DragCompletedEventArgs e)
-        {
-            ((SimpleGridSplitter) sender).OnDragCompleted(e);
-        }
+        private static void OnDragCompleted(object sender, DragCompletedEventArgs e) => ((SimpleGridSplitter)sender).OnDragCompleted(e);
 
-        private void OnDragCompleted(DragCompletedEventArgs e)
-        {
-            this.dragging = false;
-        }
+        private void OnDragCompleted(DragCompletedEventArgs e) => this.dragging = false;
 
         protected override void OnKeyDown(KeyEventArgs e)
         {
@@ -805,9 +782,35 @@ namespace Gemini.Modules.Inspector.Controls
         #region GetGrid()
         private Grid GetGrid()
         {
-            var grid = this.Parent as Grid;
 
+/* Unmerged change from project 'Gemini.Modules.Inspector (netcoreapp3.1)'
+Before:
+            var grid = this.Parent as Grid;
+After:
+            var (!(this.Parent is Grid;
+*/
+
+/* Unmerged change from project 'Gemini.Modules.Inspector (net461)'
+Before:
+            var grid = this.Parent as Grid;
+After:
+            var (!(this.Parent is Grid;
+*/
+            if (this.Parent is not Grid
+/* Unmerged change from project 'Gemini.Modules.Inspector (netcoreapp3.1)'
+Before:
             if (grid == null)
+After:
+            if (grid))
+*/
+
+/* Unmerged change from project 'Gemini.Modules.Inspector (net461)'
+Before:
+            if (grid == null)
+After:
+            if (grid))
+*/
+ grid)
             {
                 throw new InvalidOperationException(
                     "SimpleGridSplitter only works when hosted in a Grid.");

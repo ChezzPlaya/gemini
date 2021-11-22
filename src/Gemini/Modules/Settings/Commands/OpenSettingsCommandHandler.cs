@@ -13,14 +13,8 @@ namespace Gemini.Modules.Settings.Commands
         private readonly IWindowManager _windowManager;
 
         [ImportingConstructor]
-        public OpenSettingsCommandHandler(IWindowManager windowManager)
-        {
-            _windowManager = windowManager;
-        }
+        public OpenSettingsCommandHandler(IWindowManager windowManager) => _windowManager = windowManager;
 
-        public override async Task Run(Command command)
-        {
-            await _windowManager.ShowDialogAsync(IoC.Get<SettingsViewModel>());
-        }
+        public override async Task Run(Command command) => await _windowManager.ShowDialogAsync(IoC.Get<SettingsViewModel>());
     }
 }

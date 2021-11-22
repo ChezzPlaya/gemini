@@ -11,20 +11,10 @@ namespace Gemini.Modules.GraphEditor.Controls
 {
     public class ConnectionItemsControl : ListBox
     {
-        public ConnectionItemsControl()
-        {
-            SelectionMode = SelectionMode.Extended;
-        }
+        public ConnectionItemsControl() => SelectionMode = SelectionMode.Extended;
 
-        protected override DependencyObject GetContainerForItemOverride()
-        {
-            return new ConnectionItem();
-            
-        }
+        protected override DependencyObject GetContainerForItemOverride() => new ConnectionItem();
 
-        protected override bool IsItemItsOwnContainerOverride(object item)
-        {
-            return item is ConnectionItem;
-        }
+        protected override bool IsItemItsOwnContainerOverride(object item) => item is ConnectionItem;
     }
 }

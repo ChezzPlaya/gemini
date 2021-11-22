@@ -12,21 +12,15 @@ namespace Gemini.Modules.Inspector.ViewModels
     {
         public event EventHandler SelectedObjectChanged;
 
-        public override PaneLocation PreferredLocation
-        {
-            get { return PaneLocation.Right; }
-        }
+        public override PaneLocation PreferredLocation => PaneLocation.Right;
 
-        public override double PreferredWidth
-        {
-            get { return 300; }
-        }
+        public override double PreferredWidth => 300;
 
         private IInspectableObject _selectedObject;
 
         public IInspectableObject SelectedObject
         {
-            get { return _selectedObject; }
+            get => _selectedObject;
             set
             {
                 _selectedObject = value;
@@ -35,16 +29,9 @@ namespace Gemini.Modules.Inspector.ViewModels
             }
         }
 
-        public InspectorViewModel()
-        {
-            DisplayName = Resources.InspectorDisplayName;
-        }
+        public InspectorViewModel() => DisplayName = Resources.InspectorDisplayName;
 
-        private void RaiseSelectedObjectChanged()
-        {
-            EventHandler handler = SelectedObjectChanged;
-            if (handler != null) handler(this, EventArgs.Empty);
-        }
+        private void RaiseSelectedObjectChanged() => SelectedObjectChanged?.Invoke(this, EventArgs.Empty);
 
         public void ResetAll()
         {
@@ -61,8 +48,7 @@ namespace Gemini.Modules.Inspector.ViewModels
         {
             foreach (var inspector in inspectors)
             {
-                var group = inspector as Inspectors.CollapsibleGroupViewModel;
-                if (group != null)
+                if (inspector is Inspectors.CollapsibleGroupViewModel group)
                 {
                     RecurseEditors(group.Children, action);
                 }

@@ -14,7 +14,7 @@ namespace Gemini.Framework
         private string _filePath = null;
         public string FilePath
         {
-            get { return _filePath; }
+            get => _filePath;
             private set
             {
                 _filePath = value;
@@ -25,7 +25,7 @@ namespace Gemini.Framework
 
         public bool IsDirty
         {
-            get { return _isDirty; }
+            get => _isDirty;
             set
             {
                 if (value == _isDirty)
@@ -37,21 +37,13 @@ namespace Gemini.Framework
             }
         }
 
-        public override Task<bool> CanCloseAsync(CancellationToken cancellationToken)
-        {
+        public override Task<bool> CanCloseAsync(CancellationToken cancellationToken) =>
             // TODO: Show save prompt.
-            return Task.FromResult(!IsDirty);
-        }
+            Task.FromResult(!IsDirty);
 
-        private void UpdateDisplayName()
-        {
-            DisplayName = IsDirty ? FileName + "*" : FileName;
-        }
+        private void UpdateDisplayName() => DisplayName = IsDirty ? FileName + "*" : FileName;
 
-        private void UpdateToolTip()
-        {
-            ToolTip = FilePath;
-        }
+        private void UpdateToolTip() => ToolTip = FilePath;
 
         public async Task New(string fileName)
         {

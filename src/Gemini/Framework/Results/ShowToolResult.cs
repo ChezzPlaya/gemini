@@ -20,27 +20,21 @@ namespace Gemini.Framework.Results
 			
 		}
 
-		public ShowToolResult(TTool tool)
-		{
-			_toolLocator = () => tool;
-		}
+        public ShowToolResult(TTool tool) => _toolLocator = () => tool;
 
-		public override void Execute(CoroutineExecutionContext context)
+        public override void Execute(CoroutineExecutionContext context)
 		{
 			var tool = _toolLocator();
 
-			if (_setData != null)
-				_setData(tool);
+            _setData?.Invoke(tool);
 
-			if (_onConfigure != null)
-				_onConfigure(tool);
+            _onConfigure?.Invoke(tool);
 
-			tool.Deactivated += (s, e) =>
+            tool.Deactivated += (s, e) =>
 			{
                 if (e.WasClosed)
                 {
-                    if (_onShutDown != null)
-                        _onShutDown(tool);
+                    _onShutDown?.Invoke(tool);
 
                     OnCompleted(null, false);
                 }

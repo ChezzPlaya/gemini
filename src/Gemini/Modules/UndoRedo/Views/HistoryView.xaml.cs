@@ -10,10 +10,7 @@ namespace Gemini.Modules.UndoRedo.Views
     /// </summary>
     public partial class HistoryView : UserControl
     {
-        public HistoryView()
-        {
-            InitializeComponent();
-        }
+        public HistoryView() => InitializeComponent();
 
         private void HistoryItemMouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {

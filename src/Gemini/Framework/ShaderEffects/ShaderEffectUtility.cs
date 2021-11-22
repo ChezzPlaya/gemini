@@ -5,12 +5,9 @@ namespace Gemini.Framework.ShaderEffects
 {
     internal static class ShaderEffectUtility
     {
-        public static PixelShader GetPixelShader(string name)
+        public static PixelShader GetPixelShader(string name) => new PixelShader
         {
-            return new PixelShader
-            {
-                UriSource = new Uri(@"pack://application:,,,/Gemini;component/Framework/ShaderEffects/" + name + ".ps")
-            };
-        }
+            UriSource = new Uri(@"pack://application:,,,/Gemini;component/Framework/ShaderEffects/" + name + ".ps")
+        };
     }
 }

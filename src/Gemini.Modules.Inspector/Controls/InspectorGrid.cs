@@ -11,13 +11,11 @@ namespace Gemini.Modules.Inspector.Controls
         private static GridLength _propertyNameColumnWidth = new GridLength(1, GridUnitType.Star);
         public static GridLength PropertyNameColumnWidth
         {
-            get { return _propertyNameColumnWidth; }
+            get => _propertyNameColumnWidth;
             set
             {
                 _propertyNameColumnWidth = value;
-                var handler = PropertyNameColumnWidthChanged;
-                if (handler != null)
-                    handler(null, EventArgs.Empty);
+                PropertyNameColumnWidthChanged?.Invoke(null, EventArgs.Empty);
             }
         }
 
@@ -25,13 +23,11 @@ namespace Gemini.Modules.Inspector.Controls
         private static GridLength _propertyValueColumnWidth = new GridLength(1.5, GridUnitType.Star);
         public static GridLength PropertyValueColumnWidth
         {
-            get { return _propertyValueColumnWidth; }
+            get => _propertyValueColumnWidth;
             set
             {
                 _propertyValueColumnWidth = value;
-                var handler = PropertyValueColumnWidthChanged;
-                if (handler != null)
-                    handler(null, EventArgs.Empty);
+                PropertyValueColumnWidthChanged?.Invoke(null, EventArgs.Empty);
             }
         }
     }

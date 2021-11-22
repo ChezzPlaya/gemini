@@ -20,26 +20,14 @@ namespace Gemini.Demo.Modules.FilterDesigner.ViewModels
         private readonly IInspectorTool _inspectorTool;
 
         private readonly BindableCollection<ElementViewModel> _elements;
-        public IObservableCollection<ElementViewModel> Elements
-        {
-            get { return _elements; }
-        }
+        public IObservableCollection<ElementViewModel> Elements => _elements;
 
         private readonly BindableCollection<ConnectionViewModel> _connections;
-        public IObservableCollection<ConnectionViewModel> Connections
-        {
-            get { return _connections; }
-        }
+        public IObservableCollection<ConnectionViewModel> Connections => _connections;
 
-        public IEnumerable<ElementViewModel> SelectedElements
-        {
-            get { return _elements.Where(x => x.IsSelected); }
-        }
+        public IEnumerable<ElementViewModel> SelectedElements => _elements.Where(x => x.IsSelected);
 
-        public IEnumerable<ConnectionViewModel> SelectedConnections
-        {
-            get { return _connections.Where(x => x.IsSelected); }
-        }
+        public IEnumerable<ConnectionViewModel> SelectedConnections => _connections.Where(x => x.IsSelected);
 
         [ImportingConstructor]
         public GraphViewModel(IInspectorTool inspectorTool)
@@ -119,16 +107,10 @@ namespace Gemini.Demo.Modules.FilterDesigner.ViewModels
             newConnection.To = nearbyConnector;
         }
 
-        private InputConnectorViewModel FindNearbyInputConnector(Point mousePosition)
-        {
-            return Elements.SelectMany(x => x.InputConnectors)
+        private InputConnectorViewModel FindNearbyInputConnector(Point mousePosition) => Elements.SelectMany(x => x.InputConnectors)
                 .FirstOrDefault(x => AreClose(x.Position, mousePosition, 10));
-        }
 
-        private static bool AreClose(Point point1, Point point2, double distance)
-        {
-            return (point1 - point2).Length < distance;
-        }
+        private static bool AreClose(Point point1, Point point2, double distance) => (point1 - point2).Length < distance;
 
         public void DeleteElement(ElementViewModel element)
         {

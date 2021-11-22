@@ -13,8 +13,7 @@ namespace Gemini.Framework
             if (parentObject == null) 
                 return null;
 
-            var parent = parentObject as T;
-            if (parent != null)
+            if (parentObject is T parent)
                 return parent;
 
             return FindParent<T>(parentObject);

@@ -20,9 +20,6 @@ namespace Gemini.Demo.Modules.Shell.Views
     /// </summary>
     public partial class DemoApplicationSettingsView : UserControl
     {
-        public DemoApplicationSettingsView()
-        {
-            InitializeComponent();
-        }
+        public DemoApplicationSettingsView() => InitializeComponent();
     }
 }

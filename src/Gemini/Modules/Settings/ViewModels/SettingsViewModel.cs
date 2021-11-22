@@ -18,16 +18,13 @@ namespace Gemini.Modules.Settings.ViewModels
         private IEnumerable<ISettingsEditor> _settingsEditors;
         private SettingsPageViewModel _selectedPage;
 
-        public SettingsViewModel()
-        {
-            DisplayName = Resources.SettingsDisplayName;
-        }
+        public SettingsViewModel() => DisplayName = Resources.SettingsDisplayName;
 
         public List<SettingsPageViewModel> Pages { get; internal set; }
 
         public SettingsPageViewModel SelectedPage
         {
-            get { return _selectedPage; }
+            get => _selectedPage;
             set
             {
                 _selectedPage = value;

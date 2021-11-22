@@ -8,7 +8,7 @@ namespace Gemini.Modules.Inspector.Inspectors
 
         public bool UsingAlphaChannel
         {
-            get { return _usingAlphaChannel; }
+            get => _usingAlphaChannel;
 
             set
             {
@@ -21,14 +21,8 @@ namespace Gemini.Modules.Inspector.Inspectors
             }
         }
 
-        public void Opened()
-        {
-            OnBeginEdit();
-        }
+        public void Opened() => OnBeginEdit();
 
-        public void Closed()
-        {
-            OnEndEdit();
-        }
+        public void Closed() => OnEndEdit();
     }
 }

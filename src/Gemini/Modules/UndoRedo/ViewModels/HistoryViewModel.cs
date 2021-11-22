@@ -18,7 +18,7 @@ namespace Gemini.Modules.UndoRedo.ViewModels
         private IUndoRedoManager _undoRedoManager;
         public IUndoRedoManager UndoRedoManager
         {
-            get { return _undoRedoManager; }
+            get => _undoRedoManager;
             set
             {
                 if (_undoRedoManager == value)
@@ -45,7 +45,7 @@ namespace Gemini.Modules.UndoRedo.ViewModels
         private int _selectedIndex;
         public int SelectedIndex
         {
-            get { return _selectedIndex; }
+            get => _selectedIndex;
             set
             {
                 if (_selectedIndex == value)

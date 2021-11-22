@@ -6,36 +6,27 @@ using Caliburn.Micro;
 
 namespace Gemini.Framework
 {
-	public abstract class LayoutItemBase : Screen, ILayoutItem
-	{
-		private readonly Guid _id = Guid.NewGuid();
-		
-		public abstract ICommand CloseCommand { get; }
+    public abstract class LayoutItemBase : Screen, ILayoutItem
+    {
+        private readonly Guid _id = Guid.NewGuid();
+
+        public abstract ICommand CloseCommand { get; }
 
         [Browsable(false)]
-		public Guid Id
-		{
-			get { return _id; }
-		}
+        public Guid Id => _id;
 
         [Browsable(false)]
-		public string ContentId
-		{
-			get { return _id.ToString(); }
-		}
+        public string ContentId => _id.ToString();
 
         [Browsable(false)]
-		public virtual Uri IconSource
-		{
-			get { return null; }
-		}
+        public virtual Uri IconSource => null;
 
         private string _toolTip = string.Empty;
 
         [Browsable(false)]
         public string ToolTip
         {
-            get { return _toolTip; }
+            get => _toolTip;
             set
             {
                 _toolTip = value;
@@ -43,31 +34,28 @@ namespace Gemini.Framework
             }
         }
 
-		private bool _isSelected;
+        private bool _isSelected;
 
         [Browsable(false)]
-		public bool IsSelected
-		{
-			get { return _isSelected; }
-			set
-			{
-				_isSelected = value;
-				NotifyOfPropertyChange(() => IsSelected);
-			}
-		}
-
-        [Browsable(false)]
-        public virtual bool ShouldReopenOnStart
+        public bool IsSelected
         {
-            get { return false; }
+            get => _isSelected;
+            set
+            {
+                _isSelected = value;
+                NotifyOfPropertyChange(() => IsSelected);
+            }
         }
 
-		public virtual void LoadState(BinaryReader reader)
-		{
-		}
+        [Browsable(false)]
+        public virtual bool ShouldReopenOnStart => false;
 
-		public virtual void SaveState(BinaryWriter writer)
-		{
-		}
-	}
+        public virtual void LoadState(BinaryReader reader)
+        {
+        }
+
+        public virtual void SaveState(BinaryWriter writer)
+        {
+        }
+    }
 }

@@ -12,10 +12,7 @@ namespace Gemini.Modules.Shell.Commands
         private readonly IShell _shell;
 
         [ImportingConstructor]
-        public CloseFileCommandHandler(IShell shell)
-        {
-            _shell = shell;
-        }
+        public CloseFileCommandHandler(IShell shell) => _shell = shell;
 
         public override void Update(Command command)
         {
@@ -23,9 +20,6 @@ namespace Gemini.Modules.Shell.Commands
             base.Update(command);
         }
 
-        public override Task Run(Command command)
-        {
-            return _shell.CloseDocumentAsync(_shell.ActiveItem);
-        }
+        public override Task Run(Command command) => _shell.CloseDocumentAsync(_shell.ActiveItem);
     }
 }

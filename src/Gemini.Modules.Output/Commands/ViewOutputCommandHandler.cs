@@ -12,10 +12,7 @@ namespace Gemini.Modules.Output.Commands
         private readonly IShell _shell;
 
         [ImportingConstructor]
-        public ViewOutputCommandHandler(IShell shell)
-        {
-            _shell = shell;
-        }
+        public ViewOutputCommandHandler(IShell shell) => _shell = shell;
 
         public override Task Run(Command command)
         {

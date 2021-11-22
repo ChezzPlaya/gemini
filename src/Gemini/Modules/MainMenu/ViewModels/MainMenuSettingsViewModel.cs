@@ -34,30 +34,25 @@ namespace Gemini.Modules.MainMenu.ViewModels
             SelectedLanguage = Properties.Settings.Default.LanguageCode;
         }
 
-        public IEnumerable<ITheme> Themes
-        {
-            get { return _themeManager.Themes; }
-        }
+        public IEnumerable<ITheme> Themes => _themeManager.Themes;
 
         public ITheme SelectedTheme
         {
-            get { return _selectedTheme; }
+            get => _selectedTheme;
             set
             {
-                if (value.Equals(_selectedTheme)) return;
+                if (value.Equals(_selectedTheme))
+                    return;
                 _selectedTheme = value;
                 NotifyOfPropertyChange(() => SelectedTheme);
             }
         }
 
-        public IEnumerable<string> Languages
-        {
-            get { return _availableLanguages; }
-        }
+        public IEnumerable<string> Languages => _availableLanguages;
 
         public string SelectedLanguage
         {
-            get { return _selectedLanguage; }
+            get => _selectedLanguage;
             set
             {
                 if (value.Equals(_selectedLanguage))
@@ -69,24 +64,19 @@ namespace Gemini.Modules.MainMenu.ViewModels
 
         public bool AutoHideMainMenu
         {
-            get { return _autoHideMainMenu; }
+            get => _autoHideMainMenu;
             set
             {
-                if (value.Equals(_autoHideMainMenu)) return;
+                if (value.Equals(_autoHideMainMenu))
+                    return;
                 _autoHideMainMenu = value;
                 NotifyOfPropertyChange(() => AutoHideMainMenu);
             }
         }
 
-        public string SettingsPageName
-        {
-            get { return Properties.Resources.SettingsPageGeneral; }
-        }
+        public string SettingsPageName => Properties.Resources.SettingsPageGeneral;
 
-        public string SettingsPagePath
-        {
-            get { return Properties.Resources.SettingsPathEnvironment; }
-        }
+        public string SettingsPagePath => Properties.Resources.SettingsPathEnvironment;
 
         public void ApplyChanges()
         {

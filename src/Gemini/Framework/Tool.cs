@@ -63,10 +63,7 @@ namespace Gemini.Framework
         // Tool windows should always reopen on app start by default.
         public override bool ShouldReopenOnStart => true;
 
-        protected Tool()
-        {
-            IsVisible = true;
-        }
+        protected Tool() => IsVisible = true;
 
         public override Task TryCloseAsync(bool? dialogResult = null)
         {

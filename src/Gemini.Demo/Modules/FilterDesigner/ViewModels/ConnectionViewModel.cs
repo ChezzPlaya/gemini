@@ -11,7 +11,7 @@ namespace Gemini.Demo.Modules.FilterDesigner.ViewModels
         [Browsable(false)]
         public bool IsSelected
         {
-            get { return _isSelected; }
+            get => _isSelected;
             set
             {
                 _isSelected = value;
@@ -23,7 +23,7 @@ namespace Gemini.Demo.Modules.FilterDesigner.ViewModels
         [Browsable(false)]
         public OutputConnectorViewModel From
         {
-            get { return _from; }
+            get => _from;
             private set
             {
                 if (_from != null)
@@ -49,7 +49,7 @@ namespace Gemini.Demo.Modules.FilterDesigner.ViewModels
         [Browsable(false)]
         public InputConnectorViewModel To
         {
-            get { return _to; }
+            get => _to;
             set
             {
                 if (_to != null)
@@ -75,7 +75,7 @@ namespace Gemini.Demo.Modules.FilterDesigner.ViewModels
         [Browsable(false)]
         public Point FromPosition
         {
-            get { return _fromPosition; }
+            get => _fromPosition;
             set
             {
                 _fromPosition = value;
@@ -87,7 +87,7 @@ namespace Gemini.Demo.Modules.FilterDesigner.ViewModels
         [Browsable(false)]
         public Point ToPosition
         {
-            get { return _toPosition; }
+            get => _toPosition;
             set
             {
                 _toPosition = value;
@@ -101,19 +101,10 @@ namespace Gemini.Demo.Modules.FilterDesigner.ViewModels
             To = to;
         }
 
-        public ConnectionViewModel(OutputConnectorViewModel from)
-        {
-            From = from;
-        }
+        public ConnectionViewModel(OutputConnectorViewModel from) => From = from;
 
-        private void OnFromPositionChanged(object sender, EventArgs e)
-        {
-            FromPosition = From.Position;
-        }
+        private void OnFromPositionChanged(object sender, EventArgs e) => FromPosition = From.Position;
 
-        private void OnToPositionChanged(object sender, EventArgs e)
-        {
-            ToPosition = To.Position;
-        }
+        private void OnToPositionChanged(object sender, EventArgs e) => ToPosition = To.Position;
     }
 }

@@ -48,15 +48,9 @@ namespace Gemini.Modules.CodeEditor.ViewModels
             set => Set(ref _wordWrap, value);
         }
 
-        public string SettingsPageName
-        {
-            get { return Properties.Resources.SettingsPageGeneral; }
-        }
+        public string SettingsPageName => Properties.Resources.SettingsPageGeneral;
 
-        public string SettingsPagePath
-        {
-            get { return Properties.Resources.SettingsPageCodeEditor; }
-        }
+        public string SettingsPagePath => Properties.Resources.SettingsPageCodeEditor;
 
         public void ApplyChanges()
         {

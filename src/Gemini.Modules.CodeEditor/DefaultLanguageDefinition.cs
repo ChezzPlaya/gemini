@@ -19,15 +19,9 @@ namespace Gemini.Modules.CodeEditor
         }
 
         public DefaultLanguageDefinition(XshdSyntaxDefinition syntaxDefinition)
-            : this(syntaxDefinition.Name, syntaxDefinition.Extensions)
-        {
-            _syntaxDefinition = syntaxDefinition;
-        }
+            : this(syntaxDefinition.Name, syntaxDefinition.Extensions) => _syntaxDefinition = syntaxDefinition;
 
-        public string Name
-        {
-            get { return _name; }
-        }
+        public string Name => _name;
 
         public IEnumerable<string> FileExtensions { get; set; }
 

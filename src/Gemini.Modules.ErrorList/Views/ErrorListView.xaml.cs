@@ -8,10 +8,7 @@ namespace Gemini.Modules.ErrorList.Views
     /// </summary>
     public partial class ErrorListView : UserControl
     {
-        public ErrorListView()
-        {
-            InitializeComponent();
-        }
+        public ErrorListView() => InitializeComponent();
 
         private void OnDataGridMouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
@@ -20,8 +17,7 @@ namespace Gemini.Modules.ErrorList.Views
                 return;
 
             var errorListItem = (ErrorListItem) dataGrid.SelectedItem;
-            if (errorListItem.OnClick != null)
-                errorListItem.OnClick();
+            errorListItem.OnClick?.Invoke();
         }
     }
 }

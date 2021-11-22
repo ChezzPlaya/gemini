@@ -173,30 +173,15 @@ namespace Gemini.Framework.Win32
 
         #region Helpers
 
-        public static int GetXLParam(int lParam)
-        {
-            return LowWord(lParam);
-        }
+        public static int GetXLParam(int lParam) => LowWord(lParam);
 
-        public static int GetYLParam(int lParam)
-        {
-            return HighWord(lParam);
-        }
+        public static int GetYLParam(int lParam) => HighWord(lParam);
 
-        public static int GetWheelDeltaWParam(int wParam)
-        {
-            return HighWord(wParam);
-        }
+        public static int GetWheelDeltaWParam(int wParam) => HighWord(wParam);
 
-        public static int LowWord(int input)
-        {
-            return (short) (input & 0xffff);
-        }
+        public static int LowWord(int input) => (short)(input & 0xffff);
 
-        public static int HighWord(int input)
-        {
-            return (short) (input >> 16);
-        }
+        public static int HighWord(int input) => (short)(input >> 16);
 
         #endregion
     }

@@ -106,22 +106,38 @@ namespace Gemini.Framework.Commands
 
         private CommandHandlerWrapper FindCommandHandlerInVisualTree(CommandDefinitionBase commandDefinition, IInputElement target)
         {
+
+/* Unmerged change from project 'Gemini (netcoreapp3.1)'
+Before:
             var visualObject = target as DependencyObject;
             if (visualObject == null)
+After:
+            var (!(target as DependencyObject;
+            if (visualObject))
+*/
+
+/* Unmerged change from project 'Gemini (net461)'
+Before:
+            var visualObject = target as DependencyObject;
+            if (visualObject == null)
+After:
+            var (!(target as DependencyObject;
+            if (visualObject))
+*/
+            if (target is not DependencyObject visualObject)
                 return null;
 
             object previousDataContext = null;
             do
             {
-                var frameworkElement = visualObject as FrameworkElement;
-                if (frameworkElement != null)
+                if (visualObject is FrameworkElement frameworkElement)
                 {
                     var dataContext = frameworkElement.DataContext;
                     if (dataContext != null && !ReferenceEquals(dataContext, previousDataContext))
                     {
                         if (dataContext is ICommandRerouter)
                         {
-                            var commandRerouter = (ICommandRerouter) dataContext;
+                            var commandRerouter = (ICommandRerouter)dataContext;
                             var commandTarget = commandRerouter.GetHandler(commandDefinition);
                             if (commandTarget != null)
                             {

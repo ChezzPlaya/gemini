@@ -7,9 +7,6 @@ namespace Gemini.Modules.Inspector.Inspectors
     /// </summary>
     public partial class Point3DEditorView : UserControl
     {
-        public Point3DEditorView()
-        {
-            InitializeComponent();
-        }
+        public Point3DEditorView() => InitializeComponent();
     }
 }

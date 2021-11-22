@@ -19,9 +19,6 @@ namespace Gemini.Modules.Inspector.Inspectors
     /// </summary>
     public partial class CollapsibleGroupView : UserControl
     {
-        public CollapsibleGroupView()
-        {
-            InitializeComponent();
-        }
+        public CollapsibleGroupView() => InitializeComponent();
     }
 }

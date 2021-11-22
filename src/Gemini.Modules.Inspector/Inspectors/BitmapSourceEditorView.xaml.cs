@@ -19,9 +19,6 @@ namespace Gemini.Modules.Inspector.Inspectors
     /// </summary>
     public partial class BitmapSourceEditorView : UserControl
     {
-        public BitmapSourceEditorView()
-        {
-            InitializeComponent();
-        }
+        public BitmapSourceEditorView() => InitializeComponent();
     }
 }

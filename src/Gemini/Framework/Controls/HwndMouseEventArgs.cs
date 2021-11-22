@@ -62,10 +62,7 @@ namespace Gemini.Framework.Controls
         /// <summary>
         ///  Calculates the position of the mouse relative to a particular element. 
         /// </summary>
-        public Point GetPosition(UIElement relativeTo)
-        {
-            return relativeTo.PointFromScreen(ScreenPosition);
-        }
+        public Point GetPosition(UIElement relativeTo) => relativeTo.PointFromScreen(ScreenPosition);
 
         /// <summary>
         /// Initializes a new HwndMouseEventArgs.
@@ -93,16 +90,13 @@ namespace Gemini.Framework.Controls
             WheelDelta = mouseWheelDelta;
             HorizontalWheelDelta = mouseHWheelDelta;
         }
-        
+
         /// <summary>
         /// Initializes a new HwndMouseEventArgs.
         /// </summary>
         /// <param name="state">The state from which to initialize the properties.</param>
         /// <param name="doubleClickButton">The button that was double clicked.</param>
         public HwndMouseEventArgs(HwndMouseState state, MouseButton doubleClickButton)
-            : this(state)
-        {
-            DoubleClickButton = doubleClickButton;
-        }
+            : this(state) => DoubleClickButton = doubleClickButton;
     }
 }

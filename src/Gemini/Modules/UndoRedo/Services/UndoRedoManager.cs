@@ -181,14 +181,8 @@ namespace Gemini.Modules.UndoRedo.Services
             Redo(1 + i - UndoActionCount);
         }
 
-        private void OnBegin()
-        {
-            BatchBegin?.Invoke(this, EventArgs.Empty);
-        }
+        private void OnBegin() => BatchBegin?.Invoke(this, EventArgs.Empty);
 
-        private void OnEnd()
-        {
-            BatchEnd?.Invoke(this, EventArgs.Empty);
-        }
+        private void OnEnd() => BatchEnd?.Invoke(this, EventArgs.Empty);
     }
 }

@@ -7,9 +7,6 @@ namespace Gemini.Modules.Inspector.Views
     /// </summary>
     public partial class InspectorView : UserControl
     {
-        public InspectorView()
-        {
-            InitializeComponent();
-        }
+        public InspectorView() => InitializeComponent();
     }
 }

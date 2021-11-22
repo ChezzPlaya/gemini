@@ -13,8 +13,8 @@ namespace Gemini.Framework.Behaviors
 
         public object SelectedItem
         {
-            get { return GetValue(SelectedItemProperty); }
-            set { SetValue(SelectedItemProperty, value); }
+            get => GetValue(SelectedItemProperty);
+            set => SetValue(SelectedItemProperty, value);
         }
 
         public static readonly DependencyProperty SelectedItemProperty = DependencyProperty.Register(
@@ -63,10 +63,7 @@ namespace Gemini.Framework.Behaviors
 
         #region Private
 
-        private void OnTreeViewSelectedItemChanged(object sender, RoutedPropertyChangedEventArgs<object> e)
-        {
-            SelectedItem = e.NewValue;
-        }
+        private void OnTreeViewSelectedItemChanged(object sender, RoutedPropertyChangedEventArgs<object> e) => SelectedItem = e.NewValue;
 
         private static TreeViewItem GetTreeViewItem(ItemsControl container, object item)
         {
@@ -157,8 +154,7 @@ namespace Gemini.Framework.Behaviors
                 Visual child = (Visual) VisualTreeHelper.GetChild(visual, i);
                 if (child != null)
                 {
-                    T correctlyTyped = child as T;
-                    if (correctlyTyped != null)
+                    if (child is T correctlyTyped)
                     {
                         return correctlyTyped;
                     }

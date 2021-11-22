@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
@@ -12,14 +12,13 @@ namespace Gemini.Modules.Shell.Controls
 	{
 		public bool BeforeInsertAnchorable(LayoutRoot layout, LayoutAnchorable anchorableToShow, ILayoutContainer destinationContainer)
 		{
-		    var tool = anchorableToShow.Content as ITool;
-		    if (tool != null)
-			{
-				var preferredLocation = tool.PreferredLocation;
-				string paneName = GetPaneName(preferredLocation);
-				var toolsPane = layout.Descendents().OfType<LayoutAnchorablePane>().FirstOrDefault(d => d.Name == paneName);
-				if (toolsPane == null)
-				{
+            if (anchorableToShow.Content is ITool tool)
+            {
+                var preferredLocation = tool.PreferredLocation;
+                string paneName = GetPaneName(preferredLocation);
+                var toolsPane = layout.Descendents().OfType<LayoutAnchorablePane>().FirstOrDefault(d => d.Name == paneName);
+                if (toolsPane == null)
+                {
                     switch (preferredLocation)
                     {
                         case PaneLocation.Left:
@@ -34,12 +33,12 @@ namespace Gemini.Modules.Shell.Controls
                         default:
                             throw new ArgumentOutOfRangeException();
                     }
-				}
-				toolsPane.Children.Add(anchorableToShow);
-				return true;
-			}
+                }
+                toolsPane.Children.Add(anchorableToShow);
+                return true;
+            }
 
-			return false;
+            return false;
 		}
 
 		private static string GetPaneName(PaneLocation location)
@@ -77,12 +76,10 @@ namespace Gemini.Modules.Shell.Controls
 
 		public void AfterInsertAnchorable(LayoutRoot layout, LayoutAnchorable anchorableShown)
 		{
-			// If this is the first anchorable added to this pane, then use the preferred size.
-            var tool = anchorableShown.Content as ITool;
-		    if (tool != null)
-		    {
-		        var anchorablePane = anchorableShown.Parent as LayoutAnchorablePane;
-                if (anchorablePane != null && anchorablePane.ChildrenCount == 1)
+            // If this is the first anchorable added to this pane, then use the preferred size.
+            if (anchorableShown.Content is ITool tool)
+            {
+                if (anchorableShown.Parent is LayoutAnchorablePane anchorablePane && anchorablePane.ChildrenCount == 1)
                 {
                     switch (tool.PreferredLocation)
                     {
@@ -97,15 +94,12 @@ namespace Gemini.Modules.Shell.Controls
                             throw new ArgumentOutOfRangeException();
                     }
                 }
-		    }
-		}
+            }
+        }
 
-	    public bool BeforeInsertDocument(LayoutRoot layout, LayoutDocument anchorableToShow, ILayoutContainer destinationContainer)
-	    {
-            return false;
-	    }
+        public bool BeforeInsertDocument(LayoutRoot layout, LayoutDocument anchorableToShow, ILayoutContainer destinationContainer) => false;
 
-	    public void AfterInsertDocument(LayoutRoot layout, LayoutDocument anchorableShown)
+        public void AfterInsertDocument(LayoutRoot layout, LayoutDocument anchorableShown)
 	    {
 	        
 	    }

@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using Caliburn.Micro;
 
 namespace Gemini.Framework.Results
@@ -7,18 +7,13 @@ namespace Gemini.Framework.Results
     {
         private readonly Action<CoroutineExecutionContext> _lambda;
 
-        public LambdaResult(Action<CoroutineExecutionContext> lambda)
-        {
-            _lambda = lambda;
-        }
+        public LambdaResult(Action<CoroutineExecutionContext> lambda) => _lambda = lambda;
 
         public void Execute(CoroutineExecutionContext context)
         {
             _lambda(context);
 
-            var completedHandler = Completed;
-            if (completedHandler != null)
-                completedHandler(this, new ResultCompletionEventArgs());
+            Completed?.Invoke(this, new ResultCompletionEventArgs());
         }
 
         public event EventHandler<ResultCompletionEventArgs> Completed;

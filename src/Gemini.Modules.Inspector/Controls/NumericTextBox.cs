@@ -9,44 +9,38 @@ namespace Gemini.Modules.Inspector.Controls
         private TextBlock _textBlock;
         private TextBox _textBox;
 
-        static NumericTextBox()
-        {
-            DefaultStyleKeyProperty.OverrideMetadata(typeof(NumericTextBox),
+        static NumericTextBox() => DefaultStyleKeyProperty.OverrideMetadata(typeof(NumericTextBox),
                 new FrameworkPropertyMetadata(typeof(NumericTextBox)));
-        }
 
         public static readonly DependencyProperty ValueProperty = DependencyProperty.Register(
             "Value", typeof(double), typeof(NumericTextBox),
             new FrameworkPropertyMetadata(0.0, FrameworkPropertyMetadataOptions.BindsTwoWayByDefault, null, OnCoerceValue));
 
-        private static object OnCoerceValue(DependencyObject d, object basevalue)
-        {
-            return ((NumericTextBox) d).CoerceValue((double) basevalue);
-        }
+        private static object OnCoerceValue(DependencyObject d, object basevalue) => ((NumericTextBox)d).CoerceValue((double)basevalue);
 
         public double Value
         {
-            get { return (double) GetValue(ValueProperty); }
-            set { SetValue(ValueProperty, value); }
+            get => (double)GetValue(ValueProperty);
+            set => SetValue(ValueProperty, value);
         }
 
-		public static readonly DependencyProperty MinimumProperty = DependencyProperty.Register(
+        public static readonly DependencyProperty MinimumProperty = DependencyProperty.Register(
 			"Minimum", typeof(double?), typeof(NumericTextBox));
 
 		public double? Minimum
-		{
-			get { return (double?)GetValue(MinimumProperty); }
-			set { SetValue(MinimumProperty, value); }
-		}
+        {
+            get => (double?)GetValue(MinimumProperty);
+            set => SetValue(MinimumProperty, value);
+        }
 
-		public static readonly DependencyProperty MaximumProperty = DependencyProperty.Register(
+        public static readonly DependencyProperty MaximumProperty = DependencyProperty.Register(
 			"Maximum", typeof(double?), typeof(NumericTextBox));
 
 		public double? Maximum
-		{
-			get { return (double?)GetValue(MaximumProperty); }
-			set { SetValue(MaximumProperty, value); }
-		}
+        {
+            get => (double?)GetValue(MaximumProperty);
+            set => SetValue(MaximumProperty, value);
+        }
 
         public static readonly DependencyProperty ModeProperty = DependencyProperty.Register(
             "Mode", typeof(NumericTextBoxMode), typeof(NumericTextBox),
@@ -54,8 +48,8 @@ namespace Gemini.Modules.Inspector.Controls
 
         public NumericTextBoxMode Mode
         {
-            get { return (NumericTextBoxMode) GetValue(ModeProperty); }
-            set { SetValue(ModeProperty, value); }
+            get => (NumericTextBoxMode)GetValue(ModeProperty);
+            set => SetValue(ModeProperty, value);
         }
 
         public override void OnApplyTemplate()

@@ -14,10 +14,7 @@ namespace Gemini.Demo.Modules.Shell.ViewModels
     [Export(typeof(IShell))]
     public class ShellViewModel : Gemini.Modules.Shell.ViewModels.ShellViewModel
     {
-        static ShellViewModel()
-        {
-            ViewLocator.AddNamespaceMapping(typeof(ShellViewModel).Namespace, typeof(ShellView).Namespace);
-        }
+        static ShellViewModel() => ViewLocator.AddNamespaceMapping(typeof(ShellViewModel).Namespace, typeof(ShellView).Namespace);
 
         public override Task<bool> CanCloseAsync(CancellationToken cancellationToken)
         {

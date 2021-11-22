@@ -14,14 +14,8 @@ namespace Gemini.Demo.Modules.FilterDesigner.Commands
         private readonly IShell _shell;
 
         [ImportingConstructor]
-        public OpenGraphCommandHandler(IShell shell)
-        {
-            _shell = shell;
-        }
+        public OpenGraphCommandHandler(IShell shell) => _shell = shell;
 
-        public override Task Run(Command command)
-        {
-            return _shell.OpenDocumentAsync(new GraphViewModel(IoC.Get<IInspectorTool>()));
-        }
+        public override Task Run(Command command) => _shell.OpenDocumentAsync(new GraphViewModel(IoC.Get<IInspectorTool>()));
     }
 }
